@@ -1,6 +1,6 @@
-﻿using CarBook.Aplication.Features.Commands.AboutCommands;
-using CarBook.Aplication.Features.Handlers.AboutHadlers;
-using CarBook.Aplication.Features.Queries.AboutQueries;
+﻿using CarBook.Aplication.Features.CQRS.Commands.AboutCommands;
+using CarBook.Aplication.Features.CQRS.Handlers.AboutHadlers;
+using CarBook.Aplication.Features.CQRS.Queries.AboutQueries;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.WepApi.Controllers
@@ -19,7 +19,7 @@ namespace CarBook.WepApi.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Create(CreateAboutCommand command)=> CreateActionResult(await createAboutCommandHandler.Handle(command));
 	
-		[HttpPut("{id:int}")]
+		[HttpPut]
 		public async Task<IActionResult> Update(UpdateAboutCommand command)=> CreateActionResult(await updateAboutCommandHandler.Handle(command));
 	
 		[HttpDelete("{id:int}")]

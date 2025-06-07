@@ -1,5 +1,6 @@
 ﻿using CarBook.Aplication.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace CarBook.Persistence.Repositories
 {
@@ -16,5 +17,6 @@ namespace CarBook.Persistence.Repositories
 		public void Remove(T entity) => _dbSet.Remove(entity);
 
 		public void Update(T entity) => _dbSet.Update(entity);
+		public Task<bool> AnyAsync(Expression<Func<T, bool>> predicate) => _dbSet.AnyAsync(predicate);
 	}
 }

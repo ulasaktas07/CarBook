@@ -1,9 +1,7 @@
 ﻿using App.Domain.Options;
 using App.Persistence.Interceptors;
-using CarBook.Aplication.Features.Handlers.AboutHadlers;
 using CarBook.Aplication.Interfaces;
 using CarBook.Persistence.Repositories;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

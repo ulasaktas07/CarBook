@@ -13,7 +13,7 @@ namespace CarBook.Persistence.Migrations
 {
     [DbContext(typeof(CarBookContext))]
     [Migration("20250605160439_initial")]
-    partial class initial
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

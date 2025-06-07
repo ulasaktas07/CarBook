@@ -1,5 +1,4 @@
 ﻿using CarBook.Aplication;
-using CarBook.Aplication.Features.Results.AboutResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 

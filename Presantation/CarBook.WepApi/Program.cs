@@ -1,8 +1,5 @@
 using CarBook.Aplication.Extensions;
-using CarBook.Aplication.Interfaces;
-using CarBook.Domain.Entities;
 using CarBook.Persistence.Extensions;
-using CarBook.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
