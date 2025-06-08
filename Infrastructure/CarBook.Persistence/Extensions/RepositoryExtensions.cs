@@ -25,6 +25,7 @@ namespace CarBook.Persistence.Extensions
 
 			});
 			services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+			services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
 
 
 			services.AddScoped<IUnitOfWork, UnitOfWork>();
