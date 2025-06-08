@@ -10,10 +10,8 @@ namespace CarBook.Aplication.Features.CQRS.Handlers.BrandHandlers
 		public async Task<ServiceResult<CreateBrandByIdCommand>> Handle(CreateBrandCommand command)
 		{
 			var anyBrand = await repository.AnyAsync(b => b.Name == command.Name);
-			if (anyBrand)
-			{
-				return ServiceResult<CreateBrandByIdCommand>.Fail("Bu marka zaten mevcut", HttpStatusCode.Conflict);
-			}
+			if (anyBrand) return ServiceResult<CreateBrandByIdCommand>.Fail("Bu marka zaten mevcut", HttpStatusCode.Conflict);
+
 			var brand = new Brand
 			{
 				Name = command.Name
