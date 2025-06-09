@@ -13,14 +13,10 @@ namespace CarBook.Aplication.Features.Mediator.Handlers.FeatureHandlers
 		public async Task<ServiceResult> Handle(UpdateFeatureCommand request, CancellationToken cancellationToken)
 		{
 			var feature = await repository.GetByIdAsync(request.Id);
-			if (feature == null)
-			{
-				return ServiceResult.Fail("Özellik bulunamadı", HttpStatusCode.NotFound);
-			}
-			if (await repository.AnyAsync(x => x.Name == request.Name && x.Id != request.Id))
-			{
-				return ServiceResult.Fail("Bu isimde bir özellik zaten var", HttpStatusCode.Conflict);
-			}
+			if (feature == null) return ServiceResult.Fail("Özellik bulunamadı", HttpStatusCode.NotFound);
+
+			if (await repository.AnyAsync(x => x.Name == request.Name && x.Id != request.Id)) return ServiceResult.Fail("Bu isimde bir özellik zaten var", HttpStatusCode.Conflict);
+			
 			feature.Name = request.Name;
 			repository.Update(feature);
 			await unitOfWork.SaveChangesAsync();

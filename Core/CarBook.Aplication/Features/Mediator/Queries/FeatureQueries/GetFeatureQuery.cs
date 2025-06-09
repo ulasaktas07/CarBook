@@ -3,7 +3,7 @@ using MediatR;
 
 namespace CarBook.Aplication.Features.Mediator.Queries.FeatureQueries
 {
-	public class GetFeatureQuery:IRequest<ServiceResult<List<GetFeatureQueryResult>>>
+	public record GetFeatureQuery:IRequest<ServiceResult<List<GetFeatureQueryResult>>>
 	{
 	}
 }

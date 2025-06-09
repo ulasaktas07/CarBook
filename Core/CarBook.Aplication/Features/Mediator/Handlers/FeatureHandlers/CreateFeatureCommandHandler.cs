@@ -6,7 +6,8 @@ using System.Net;
 
 namespace CarBook.Aplication.Features.Mediator.Handlers.FeatureHandlers
 {
-	public class CreateFeatureCommandHandler(IRepository<Feature> repository, IUnitOfWork unitOfWork) : IRequestHandler<CreateFeatureCommand, ServiceResult<CreateFeatureByIdCommand>>
+	public class CreateFeatureCommandHandler(IRepository<Feature> repository, IUnitOfWork unitOfWork) : 
+		IRequestHandler<CreateFeatureCommand, ServiceResult<CreateFeatureByIdCommand>>
 	{
 		public async Task<ServiceResult<CreateFeatureByIdCommand>> Handle(CreateFeatureCommand request, CancellationToken cancellationToken)
 		{
