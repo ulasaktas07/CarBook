@@ -4,10 +4,8 @@ using CarBook.Aplication.Features.CQRS.Handlers.BrandHandlers;
 using CarBook.Aplication.Features.CQRS.Handlers.CarHandlers;
 using CarBook.Aplication.Features.CQRS.Handlers.CategoryHandlers;
 using CarBook.Aplication.Features.CQRS.Handlers.ContactHandlers;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
 
 namespace CarBook.Aplication.Extensions
 {
@@ -53,6 +51,8 @@ namespace CarBook.Aplication.Extensions
 			services.AddScoped<CreateContactCommandHandler>();
 			services.AddScoped<UpdateContactCommandHandler>();
 			services.AddScoped<RemoveContactCommandHandler>();
+
+			services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof (ServiceExtensions).Assembly));
 
 
 			return services;
