@@ -6,7 +6,8 @@ using MediatR;
 
 namespace CarBook.Aplication.Features.Mediator.Handlers.FeatureHandlers
 {
-	public class GetFeatureQueryHandler(IRepository<Feature> repository) : IRequestHandler<GetFeatureQuery, ServiceResult<List<GetFeatureQueryResult>>>
+	public class GetFeatureQueryHandler(IRepository<Feature> repository) :
+		IRequestHandler<GetFeatureQuery, ServiceResult<List<GetFeatureQueryResult>>>
 	{
 		public async Task<ServiceResult<List<GetFeatureQueryResult>>> Handle(GetFeatureQuery request, CancellationToken cancellationToken)
 		{

@@ -6,7 +6,8 @@ using MediatR;
 
 namespace CarBook.Aplication.Features.Mediator.Handlers.FooterAddressHandlers
 {
-	public class GetFooterAddressQueryHandler(IRepository<FooterAddress> repository) : IRequestHandler<GetFooterAddressQuery, ServiceResult<List<GetFooterAddressQueryResult>>>
+	public class GetFooterAddressQueryHandler(IRepository<FooterAddress> repository) : 
+		IRequestHandler<GetFooterAddressQuery, ServiceResult<List<GetFooterAddressQueryResult>>>
 	{
 		public async Task<ServiceResult<List<GetFooterAddressQueryResult>>> Handle(GetFooterAddressQuery request, CancellationToken cancellationToken)
 		{

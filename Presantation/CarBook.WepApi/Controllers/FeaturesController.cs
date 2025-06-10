@@ -21,7 +21,6 @@ namespace CarBook.WepApi.Controllers
 		public async Task<IActionResult> Update(UpdateFeatureCommand command) => CreateActionResult(await mediator.Send(command));
 
 		[HttpDelete("{id:int}")]
-		public async Task<IActionResult> Delete(int id) =>
-			CreateActionResult(await mediator.Send(new RemoveFeatureCommand(id)));
+		public async Task<IActionResult> Remove(int id) =>CreateActionResult(await mediator.Send(new RemoveFeatureCommand(id)));
 	}
 }

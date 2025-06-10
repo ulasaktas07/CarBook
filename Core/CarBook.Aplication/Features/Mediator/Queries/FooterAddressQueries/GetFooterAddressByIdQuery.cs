@@ -5,7 +5,7 @@ namespace CarBook.Aplication.Features.Mediator.Queries.FooterAddressQueries
 {
 	public record GetFooterAddressByIdQuery:IRequest<ServiceResult<GetFooterAddressByIdQueryResult>>
 	{
-		public int Id { get; set; }
+		public int Id { get; }
 		public GetFooterAddressByIdQuery(int id)
 		{
 			Id = id;

@@ -12,9 +12,9 @@ namespace CarBook.Aplication.Features.Mediator.Handlers.FooterAddressHandlers
 		public async Task<ServiceResult> Handle(UpdateFooterAddressCommand request, CancellationToken cancellationToken)
 		{
 			var footerAddress = await repository.GetByIdAsync(request.Id);
-			if (footerAddress == null)	return ServiceResult.Fail("Footer address bulunamadı",HttpStatusCode.NotFound);
-
-			
+			if (footerAddress == null || footerAddress.Id != request.Id) 
+				return ServiceResult.Fail("Footer address bulunamadı",HttpStatusCode.NotFound);
+	
 			footerAddress.Address = request.Address;
 			footerAddress.Phone = request.Phone;
 			footerAddress.Email = request.Email;

@@ -1,7 +1,6 @@
 ﻿using CarBook.Aplication.Features.Mediator.Commands.FooterAddressCommands;
 using CarBook.Aplication.Features.Mediator.Queries.FooterAddressQueries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.WepApi.Controllers
@@ -21,6 +20,6 @@ namespace CarBook.WepApi.Controllers
 		public async Task<IActionResult> Update(UpdateFooterAddressCommand command) => CreateActionResult(await mediator.Send(command));
 
 		[HttpDelete("{id:int}")]
-		public async Task<IActionResult> Delete(int id) =>CreateActionResult(await mediator.Send(new RemoveFooterAddressCommand(id)));
+		public async Task<IActionResult> Remove(int id) =>CreateActionResult(await mediator.Send(new RemoveFooterAddressCommand(id)));
 	}
 }
