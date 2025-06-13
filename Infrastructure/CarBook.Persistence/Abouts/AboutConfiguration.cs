@@ -10,7 +10,7 @@ namespace CarBook.Persistence.Abouts
 		{
 			builder.HasKey(x => x.Id);
 			builder.Property(x => x.Title).IsRequired().HasMaxLength(100);
-			builder.Property(x => x.Description).IsRequired().HasMaxLength(300);
+			builder.Property(x => x.Description).IsRequired();
 			builder.Property(x => x.ImageUrl).HasMaxLength(100);
 
 		}
