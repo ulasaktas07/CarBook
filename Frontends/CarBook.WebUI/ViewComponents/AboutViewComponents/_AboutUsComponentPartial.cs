@@ -1,4 +1,5 @@
-﻿using CarBook.Dto.AboutDtos;
+﻿using CarBook.Dto;
+using CarBook.Dto.AboutDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 namespace CarBook.WebUI.ViewComponents.AboutViewComponents
@@ -15,12 +16,12 @@ namespace CarBook.WebUI.ViewComponents.AboutViewComponents
 			{
 				var jsonData = await response.Content.ReadAsStringAsync();
 
-				var result = JsonConvert.DeserializeObject<AboutApiResponse>(jsonData);
+				var result = JsonConvert.DeserializeObject <ApiResponse<AboutDto>> (jsonData);
 
 				return View(result?.Data ?? new List<AboutDto>());
 			}
-
-			return View(new List<AboutDto>());
+			
+			return View();
 		}
 	}
 }
