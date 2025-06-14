@@ -1,27 +1,17 @@
-﻿using CarBook.Dto;
+﻿using CarBook.Aplication.Interfaces;
+using CarBook.Dto;
 using CarBook.Dto.AboutDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 namespace CarBook.WebUI.ViewComponents.AboutViewComponents
 {
-	public class _AboutUsComponentPartial(IHttpClientFactory httpClientFactory):ViewComponent()
+	public class _AboutUsComponentPartial(IAboutApiClient aboutApiClient):ViewComponent()
 	{
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
-			var client = httpClientFactory.CreateClient();
+			var abouts = await aboutApiClient.GetAboutsAsync();
 
-			var response = await client.GetAsync("https://localhost:7274/api/Abouts");
-
-			if (response.IsSuccessStatusCode)
-			{
-				var jsonData = await response.Content.ReadAsStringAsync();
-
-				var result = JsonConvert.DeserializeObject <ApiResponse<AboutDto>> (jsonData);
-
-				return View(result?.Data ?? new List<AboutDto>());
-			}
-			
-			return View();
+			return View(abouts);
 		}
 	}
 }
