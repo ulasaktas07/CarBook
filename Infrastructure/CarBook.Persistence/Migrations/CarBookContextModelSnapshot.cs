@@ -90,6 +90,45 @@ namespace CarBook.Persistence.Migrations
                     b.ToTable("Banners");
                 });
 
+            modelBuilder.Entity("CarBook.Domain.Entities.Blog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CoverImageUrl")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("WriterID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryID");
+
+                    b.HasIndex("WriterID");
+
+                    b.ToTable("Blogs");
+                });
+
             modelBuilder.Entity("CarBook.Domain.Entities.Brand", b =>
                 {
                     b.Property<int>("Id")
@@ -387,7 +426,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("FooterAddresses", (string)null);
+                    b.ToTable("FooterAddresses");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Location", b =>
@@ -540,6 +579,58 @@ namespace CarBook.Persistence.Migrations
                     b.ToTable("Testimonials");
                 });
 
+            modelBuilder.Entity("CarBook.Domain.Entities.Writer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Writers");
+                });
+
+            modelBuilder.Entity("CarBook.Domain.Entities.Blog", b =>
+                {
+                    b.HasOne("CarBook.Domain.Entities.Category", "Category")
+                        .WithMany("Blogs")
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarBook.Domain.Entities.Writer", "Writer")
+                        .WithMany("Blogs")
+                        .HasForeignKey("WriterID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Writer");
+                });
+
             modelBuilder.Entity("CarBook.Domain.Entities.Car", b =>
                 {
                     b.HasOne("CarBook.Domain.Entities.Brand", "Brand")
@@ -614,6 +705,11 @@ namespace CarBook.Persistence.Migrations
                     b.Navigation("CarPricings");
                 });
 
+            modelBuilder.Entity("CarBook.Domain.Entities.Category", b =>
+                {
+                    b.Navigation("Blogs");
+                });
+
             modelBuilder.Entity("CarBook.Domain.Entities.Feature", b =>
                 {
                     b.Navigation("CarFeatures");
@@ -622,6 +718,11 @@ namespace CarBook.Persistence.Migrations
             modelBuilder.Entity("CarBook.Domain.Entities.Pricing", b =>
                 {
                     b.Navigation("CarPricings");
+                });
+
+            modelBuilder.Entity("CarBook.Domain.Entities.Writer", b =>
+                {
+                    b.Navigation("Blogs");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,5 +1,5 @@
 ﻿using CarBook.Aplication.Features.CQRS.Results.CarResults;
-using CarBook.Aplication.Interfaces;
+using CarBook.Aplication.Interfaces.CarInterfaces;
 
 namespace CarBook.Aplication.Features.CQRS.Handlers.CarHandlers
 {

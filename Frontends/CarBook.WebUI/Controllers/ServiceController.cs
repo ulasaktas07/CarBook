@@ -1,18 +1,13 @@
-﻿using CarBook.Aplication.Interfaces;
-using CarBook.Dto;
-using CarBook.Dto.ServiceDtos;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.WebUI.Controllers
 {
-	public class ServiceController(IServiceApiClient serviceApiClient) : Controller
+	public class ServiceController : Controller
 	{
-		public async Task<IActionResult> IndexAsync()
+		public  IActionResult Index()
 		{
 			ViewData["a"]= "SERVİSLER";
-			var services = await serviceApiClient.GetServicesAsync();
-			return View(services);
+			return View();
 		}
 	}
 }

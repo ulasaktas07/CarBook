@@ -10,7 +10,7 @@ namespace CarBook.WepApi.Controllers
 
 	public class CarsController(GetCarQueryHandler getCarQueryHandler, GetCarByIdQueryHandler getCarByIdQueryHandler, CreateCarCommandHandler createCarCommandHandler,
 		UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler
-		, GetCarWithBrandQueryHandler getCarWithBrandQueryHandler) : CustomBaseController
+		, GetCarWithBrandQueryHandler getCarWithBrandQueryHandler,GetLas5CarsWithBrandQueryHandler getLas5CarsWithBrandQueryHandler) : CustomBaseController
 	{
 		[HttpGet]
 		public async Task<IActionResult> GetAll() => CreateActionResult(await getCarQueryHandler.Handle());
@@ -29,5 +29,8 @@ namespace CarBook.WepApi.Controllers
 
 		[HttpGet("GetCarsWithBrands")]
 		public IActionResult GetCarsWithBrands() => CreateActionResult( getCarWithBrandQueryHandler.Handle());
+
+		[HttpGet("GetLast5CarsWithBrands")]
+		public IActionResult GetLast5CarsWithBrands() => CreateActionResult(getLas5CarsWithBrandQueryHandler.Handle());
 	}
 }

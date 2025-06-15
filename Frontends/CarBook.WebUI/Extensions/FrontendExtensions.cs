@@ -9,6 +9,8 @@ namespace CarBook.WebUI.Extensions
 	{
 		public static IServiceCollection AddClients(this IServiceCollection services, IConfiguration configuration)
 		{
+			services.AddControllersWithViews();
+			services.AddHttpClient();
 			services.AddScoped<IContactService, ContactService>();
 			services.AddScoped<IContactApiClient, ContactApiClient>();
 			services.AddScoped<IAboutApiClient, AboutApiClient>();
@@ -16,6 +18,8 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<ITestimonialApiClient, TestimonialApiClient>();
 			services.AddScoped<ICarApiClient, CarApiClient>();
 			services.AddScoped<IServiceApiClient, ServiceApiClient>();
+			services.AddScoped<IBannerApiClient, BannerApiClient>();
+			services.AddScoped<IBlogApiClient, BlogApiClient>();
 
 			services.AddAutoMapper(typeof(MappingProfile).Assembly);
 			return services;

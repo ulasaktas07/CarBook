@@ -21,6 +21,8 @@ namespace CarBook.Persistence
 		public DbSet<Service> Services { get; set; } = default!;
 		public DbSet<SocialMedia> SocialMedias { get; set; } = default!;
 		public DbSet<Testimonial> Testimonials { get; set; } = default!;
+		public DbSet<Writer> Writers { get; set; } = default!;
+		public DbSet<Blog> Blogs { get; set; } = default!;
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
