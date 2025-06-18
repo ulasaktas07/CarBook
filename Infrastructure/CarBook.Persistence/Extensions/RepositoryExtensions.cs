@@ -3,6 +3,7 @@ using App.Persistence.Interceptors;
 using CarBook.Aplication.Interfaces;
 using CarBook.Aplication.Interfaces.BlogInterfaces;
 using CarBook.Aplication.Interfaces.CarInterfaces;
+using CarBook.Aplication.Interfaces.CarPricingInterfaces;
 using CarBook.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +30,7 @@ namespace CarBook.Persistence.Extensions
 			services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 			services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
 			services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository));
+			services.AddScoped(typeof(ICarPricingRepository), typeof(CarPricingRepository));
 
 
 			services.AddScoped<IUnitOfWork, UnitOfWork>();

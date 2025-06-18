@@ -6,12 +6,13 @@ using Newtonsoft.Json;
 
 namespace CarBook.WebUI.Controllers
 {
-	public class CarController(ICarApiClient carApiClient) : Controller
+	public class CarController(ICarPricingClient carPricingClient) : Controller
 	{
 		public async Task<IActionResult> Index()
 		{
 			ViewData["a"] = "ARABALAR";
-			var cars = await carApiClient.GetCarsAsync();
+			ViewBag.b= "ARABALARIMIZ";
+			var cars = await carPricingClient.GetCarPricingWithCarsAsync();
 			return View(cars);
 		}
 	}

@@ -20,6 +20,7 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<IServiceApiClient, ServiceApiClient>();
 			services.AddScoped<IBannerApiClient, BannerApiClient>();
 			services.AddScoped<IBlogApiClient, BlogApiClient>();
+			services.AddScoped<ICarPricingClient, CarPricingClient>();
 
 			services.AddAutoMapper(typeof(MappingProfile).Assembly);
 			return services;

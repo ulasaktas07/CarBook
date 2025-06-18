@@ -15,6 +15,7 @@ namespace CarBook.WebUI.Controllers
 		public IActionResult Index()
 		{
 			ViewData["a"] = "İLETİŞİM";
+			ViewBag.b= "İLETİŞİM";
 
 			return View();
 		}
