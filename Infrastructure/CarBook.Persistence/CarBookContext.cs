@@ -24,6 +24,7 @@ namespace CarBook.Persistence
 		public DbSet<Writer> Writers { get; set; } = default!;
 		public DbSet<Blog> Blogs { get; set; } = default!;
 		public DbSet<TagCloud> TagClouds { get; set; } = default!;
+		public DbSet<Comment> Comments { get; set; } = default!;
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

@@ -13,6 +13,7 @@ namespace CarBook.Domain.Entities
 		public Category Category { get; set; }= default!;
 		public string Description { get; set; } = default!;
 		public List<TagCloud>? TagClouds { get; set; }
+		public List<Comment>? Comments { get; set; }
 		public DateTime Created { get; set; }
 		public DateTime? Updated { get; set; }
 	}
