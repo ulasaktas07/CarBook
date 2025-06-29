@@ -3,7 +3,7 @@ using CarBook.Dto;
 using CarBook.Dto.CategoryDtos;
 using Newtonsoft.Json;
 
-namespace CarBook.Persistence.Services
+namespace CarBook.Persistence.Client
 {
 	public class CategoryApiClient(IHttpClientFactory httpClientFactory) : ICategoryApiClient
 	{

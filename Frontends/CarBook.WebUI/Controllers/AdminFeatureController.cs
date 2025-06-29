@@ -46,7 +46,7 @@ namespace CarBook.WebUI.Controllers
 			return View(features);
 		}
 		[HttpPost]
-		public async Task<IActionResult> UpdateFeature(ResultFeatureDto resultFeatureDto)
+		public async Task<IActionResult> UpdateFeature(UpdateFeatureRequest resultFeatureDto)
 		{
 			var result = await featureService.UpdateFeatureAsync(resultFeatureDto);
 			if (result)

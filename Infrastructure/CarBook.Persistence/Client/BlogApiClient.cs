@@ -3,7 +3,7 @@ using CarBook.Dto;
 using CarBook.Dto.BlogDtos;
 using CarBook.Dto.WriterDtos;
 using Newtonsoft.Json;
-namespace CarBook.Persistence.Services
+namespace CarBook.Persistence.Client
 {
 	public class BlogApiClient(IHttpClientFactory httpClientFactory) : IBlogApiClient
 	{

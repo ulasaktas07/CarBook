@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
 using CarBook.Aplication.Features.CQRS.Commands.ContactCommands;
 using CarBook.Aplication.Interfaces;
-using CarBook.Dto.CarDtos;
 using CarBook.Dto.ContactDtos;
-namespace CarBook.Aplication.Services
+namespace CarBook.Persistence.Services
 {
 	public class ContactService(IContactApiClient contactApiClient, IMapper mapper) : IContactService
 	{

@@ -1,6 +1,6 @@
 ﻿namespace CarBook.Dto.CarDtos
 {
-	public class ResultCarDto
+	public class UpdateCarRequest
 	{
 		public int Id { get; set; }
 		public int BrandID { get; set; }

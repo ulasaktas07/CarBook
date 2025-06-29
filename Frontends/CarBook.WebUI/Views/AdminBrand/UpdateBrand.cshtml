@@ -1,0 +1,28 @@
+﻿@model UpdateBrandRequest
+
+@{
+    ViewData["Title"] = "UpdateBrand";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="row">
+        <div class="card-body">
+
+            <h4 class="card-title">Yeni Marka Girişi</h4>
+            <form method="post">
+                <input type="hidden" asp-for="id" />
+                <div class="form-group">
+                    <label for="exampleInputName">Marka Adı</label>
+                    <input type="text" class="form-control" id="exampleInputName" asp-for="name" placeholder="Marka Girişi Yapınız">
+                </div>
+
+                <button type="submit" class="btn btn-primary waves-effect waves-light">Markayı Güncelle</button>
+            </form>
+
+        </div> <!-- end card-body-->
+    </div> <!-- end card-->
+
+
+</div>
+<!-- end card-body-->

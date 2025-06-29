@@ -1,11 +1,10 @@
-﻿
-using CarBook.Aplication.Interfaces;
+﻿using CarBook.Aplication.Interfaces;
 using CarBook.Dto;
 using CarBook.Dto.CarDtos;
 using Newtonsoft.Json;
 using System.Text;
 
-namespace CarBook.Persistence.Services
+namespace CarBook.Persistence.Client
 {
 	public class CarApiClient(IHttpClientFactory httpClientFactory) : ICarApiClient
 	{
@@ -64,18 +63,18 @@ namespace CarBook.Persistence.Services
 			return response.IsSuccessStatusCode;
 		}
 
-		public async Task<ResultCarDto> GetByIdAsync(int id)
+		public async Task<UpdateCarRequest> GetByIdAsync(int id)
 		{
 			var client = httpClientFactory.CreateClient();
 			var response = await client.GetAsync($"https://localhost:7274/api/Cars/{id}");
 			if (!response.IsSuccessStatusCode)
-				return new ResultCarDto();
+				return new UpdateCarRequest();
 			var jsonData = await response.Content.ReadAsStringAsync();
-			var apiResponse = JsonConvert.DeserializeObject<ApiIdResponse<ResultCarDto>>(jsonData);
-			return apiResponse?.Data ?? new ResultCarDto();
+			var apiResponse = JsonConvert.DeserializeObject<ApiIdResponse<UpdateCarRequest>>(jsonData);
+			return apiResponse?.Data ?? new UpdateCarRequest();
 		}
 
-		public async Task<bool> SendUpdateCarAsync(ResultCarDto result)
+		public async Task<bool> SendUpdateCarAsync(UpdateCarRequest result)
 		{
 			var client = httpClientFactory.CreateClient();
 			var json = JsonConvert.SerializeObject(result);

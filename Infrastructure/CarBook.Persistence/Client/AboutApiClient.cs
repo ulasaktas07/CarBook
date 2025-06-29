@@ -3,9 +3,9 @@ using CarBook.Dto;
 using CarBook.Dto.AboutDtos;
 using Newtonsoft.Json;
 
-namespace CarBook.Persistence.Services
+namespace CarBook.Persistence.Client
 {
-	public class AboutApiClient(IHttpClientFactory httpClientFactory): IAboutApiClient
+	public class AboutApiClient(IHttpClientFactory httpClientFactory) : IAboutApiClient
 	{
 		public async Task<List<AboutDto>> GetAboutsAsync()
 		{

@@ -4,7 +4,7 @@ using CarBook.Dto.AboutDtos;
 using CarBook.Dto.TestimonialDtos;
 using Newtonsoft.Json;
 
-namespace CarBook.Persistence.Services
+namespace CarBook.Persistence.Client
 {
 	public class TestimonialApiClient(IHttpClientFactory httpClientFactory) : ITestimonialApiClient
 	{

@@ -2,7 +2,7 @@
 using CarBook.Dto;
 using CarBook.Dto.ServiceDtos;
 
-namespace CarBook.Persistence.Services
+namespace CarBook.Persistence.Client
 {
 	public class ServiceApiClient(IHttpClientFactory httpClientFactory) : IServiceApiClient
 	{

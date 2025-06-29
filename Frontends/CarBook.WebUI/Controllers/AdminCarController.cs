@@ -71,7 +71,7 @@ namespace CarBook.WebUI.Controllers
 			return View(car);
 		}
 		[HttpPost]
-		public async Task<IActionResult> UpdateCar(ResultCarDto resultCarDto)
+		public async Task<IActionResult> UpdateCar(UpdateCarRequest resultCarDto)
 		{
 			if (ModelState.IsValid)
 			{

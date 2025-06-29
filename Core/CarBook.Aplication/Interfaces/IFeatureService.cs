@@ -7,7 +7,7 @@ namespace CarBook.Aplication.Interfaces
 	{
 		Task<bool> CreateFeatureAsync(CreateFeatureRequest createFeatureRequest);
 
-		Task<bool> UpdateFeatureAsync(ResultFeatureDto resultFeatureDto);
+		Task<bool> UpdateFeatureAsync(UpdateFeatureRequest resultFeatureDto);
 
 	}
 }

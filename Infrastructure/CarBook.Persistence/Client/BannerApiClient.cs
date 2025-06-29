@@ -1,10 +1,9 @@
 ﻿using CarBook.Aplication.Interfaces;
 using CarBook.Dto;
-using CarBook.Dto.AboutDtos;
 using CarBook.Dto.BannerDtos;
 using Newtonsoft.Json;
 
-namespace CarBook.Persistence.Services
+namespace CarBook.Persistence.Client
 {
 	public class BannerApiClient(IHttpClientFactory httpClientFactory) : IBannerApiClient
 	{

@@ -3,19 +3,19 @@ using CarBook.Dto;
 using CarBook.Dto.FeatureDtos;
 using Newtonsoft.Json;
 using System.Text;
-namespace CarBook.Persistence.Services
+namespace CarBook.Persistence.Client
 {
 	public class FeatureApiClient(IHttpClientFactory httpClientFactory) : IFeatureApiClient
 	{
-		public async Task<ResultFeatureDto> GetFeatureByIdAsync(int id)
+		public async Task<UpdateFeatureRequest> GetFeatureByIdAsync(int id)
 		{
 			var client = httpClientFactory.CreateClient();
 			var response = await client.GetAsync($"https://localhost:7274/api/Features/{id}");
 			if (!response.IsSuccessStatusCode)
-				return new ResultFeatureDto();
+				return new UpdateFeatureRequest();
 			var jsonData = await response.Content.ReadAsStringAsync();
-			var apiResponse = JsonConvert.DeserializeObject<ApiIdResponse<ResultFeatureDto>>(jsonData);
-			return apiResponse?.Data ?? new ResultFeatureDto();
+			var apiResponse = JsonConvert.DeserializeObject<ApiIdResponse<UpdateFeatureRequest>>(jsonData);
+			return apiResponse?.Data ?? new UpdateFeatureRequest();
 		}
 
 		public async Task<List<FeatureDto>> GetFeaturesAsync()
@@ -37,7 +37,7 @@ namespace CarBook.Persistence.Services
 		{
 			var client = httpClientFactory.CreateClient();
 			var jsonContent = JsonConvert.SerializeObject(createFeatureRequest);
-			var content = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
+			var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 			var response = await client.PostAsync("https://localhost:7274/api/Features", content);
 			if (!response.IsSuccessStatusCode)
 				return false;
@@ -53,7 +53,7 @@ namespace CarBook.Persistence.Services
 			return response.IsSuccessStatusCode;
 		}
 
-		public async Task<bool> SendUpdateFeatureAsync(ResultFeatureDto resultFeatureDto)
+		public async Task<bool> SendUpdateFeatureAsync(UpdateFeatureRequest resultFeatureDto)
 		{
 			var client = httpClientFactory.CreateClient();
 			var jsonContent = JsonConvert.SerializeObject(resultFeatureDto);

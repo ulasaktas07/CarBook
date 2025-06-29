@@ -4,7 +4,7 @@ using CarBook.Aplication.Interfaces;
 using CarBook.Aplication.Interfaces.ApiConsume;
 using CarBook.Dto.FeatureDtos;
 
-namespace CarBook.Aplication.Services
+namespace CarBook.Persistence.Services
 {
 	public class FeatureService(IFeatureApiClient featureApiClient, IMapper mapper) : IFeatureService
 	{
@@ -14,7 +14,7 @@ namespace CarBook.Aplication.Services
 			return await featureApiClient.SendCreateFeatureAsync(createFeatureRequest);
 		}
 
-		public async Task<bool> UpdateFeatureAsync(ResultFeatureDto resultFeatureDto)
+		public async Task<bool> UpdateFeatureAsync(UpdateFeatureRequest resultFeatureDto)
 		{
 			var command = mapper.Map<UpdateFeatureCommand>(resultFeatureDto);
 			return await featureApiClient.SendUpdateFeatureAsync(resultFeatureDto);

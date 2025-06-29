@@ -8,11 +8,11 @@ namespace CarBook.Aplication.Interfaces.ApiConsume
 		Task<List<FeatureDto>> GetFeaturesAsync();
 		Task<bool> SendCreateFeatureAsync(CreateFeatureRequest createFeatureRequest);
 
-		Task<bool> SendUpdateFeatureAsync(ResultFeatureDto resultFeatureDto);
+		Task<bool> SendUpdateFeatureAsync(UpdateFeatureRequest resultFeatureDto);
 
 		Task<bool> SendDeleteFeatureAsync(int id);
 
-		Task<ResultFeatureDto> GetFeatureByIdAsync(int id);
+		Task<UpdateFeatureRequest> GetFeatureByIdAsync(int id);
 
 
 

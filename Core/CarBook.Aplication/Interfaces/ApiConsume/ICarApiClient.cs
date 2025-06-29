@@ -10,9 +10,9 @@ namespace CarBook.Aplication.Interfaces
 		Task<bool> SendCreateCarAsync(CreateCarRequest request);
 		Task<bool> SendDeleteCarAsync(int id);
 
-		Task<ResultCarDto> GetByIdAsync(int id);
+		Task<UpdateCarRequest> GetByIdAsync(int id);
 
-		Task<bool> SendUpdateCarAsync(ResultCarDto result);
+		Task<bool> SendUpdateCarAsync(UpdateCarRequest result);
 
 
 	}

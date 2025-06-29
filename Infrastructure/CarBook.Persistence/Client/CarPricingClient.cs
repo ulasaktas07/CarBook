@@ -2,7 +2,7 @@
 using CarBook.Dto;
 using CarBook.Dto.CarPricingDtos;
 
-namespace CarBook.Persistence.Services
+namespace CarBook.Persistence.Client
 {
 	public class CarPricingClient(IHttpClientFactory httpClientFactory) : ICarPricingClient
 	{

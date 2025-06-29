@@ -3,7 +3,7 @@ using CarBook.Dto;
 using CarBook.Dto.FooterAddressDtos;
 using Newtonsoft.Json;
 
-namespace CarBook.Persistence.Services
+namespace CarBook.Persistence.Client
 {
 	public class FooterAddressApiClient : IFooterAddressApiClient
 	{

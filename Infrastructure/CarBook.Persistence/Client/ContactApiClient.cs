@@ -3,7 +3,7 @@ using CarBook.Aplication.Interfaces;
 using Newtonsoft.Json;
 using System.Text;
 
-namespace CarBook.Persistence.Services
+namespace CarBook.Persistence.Client
 {
 	public class ContactApiClient(IHttpClientFactory httpClientFactory) : IContactApiClient
 	{

@@ -6,7 +6,7 @@ namespace CarBook.Aplication.Interfaces
 	{
 		Task<bool> CreateCarAsync(CreateCarRequest request);
 
-		Task<bool> UpdateCarAsync(ResultCarDto result);
+		Task<bool> UpdateCarAsync(UpdateCarRequest result);
 
 	}
 }

@@ -3,7 +3,7 @@ using CarBook.Aplication.Features.CQRS.Commands.CarCommands;
 using CarBook.Aplication.Interfaces;
 using CarBook.Dto.CarDtos;
 
-namespace CarBook.Aplication.Services
+namespace CarBook.Persistence.Services
 {
 	public class CarService(ICarApiClient carApiClient, IMapper mapper) : ICarService
 	{
@@ -13,7 +13,7 @@ namespace CarBook.Aplication.Services
 			return await carApiClient.SendCreateCarAsync(request);
 		}
 
-		public async Task<bool> UpdateCarAsync(ResultCarDto result)
+		public async Task<bool> UpdateCarAsync(UpdateCarRequest result)
 		{
 			var command = mapper.Map<UpdateCarCommand>(result);
 			return await carApiClient.SendUpdateCarAsync(result);

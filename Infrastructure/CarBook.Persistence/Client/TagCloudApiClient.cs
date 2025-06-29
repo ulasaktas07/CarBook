@@ -3,7 +3,7 @@ using CarBook.Dto;
 using CarBook.Dto.TagCloudDtos;
 using System.Net.Http.Json;
 
-namespace CarBook.Persistence.Services
+namespace CarBook.Persistence.Client
 {
 	public class TagCloudApiClient(IHttpClientFactory httpClientFactory) : ITagCloudApiClient
 	{
