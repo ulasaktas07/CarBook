@@ -1,7 +1,6 @@
 ﻿using CarBook.Aplication;
 using CarBook.Aplication.Interfaces;
 using CarBook.Aplication.Interfaces.ApiConsume;
-using CarBook.Aplication.Interfaces.TagCloudInterfaces;
 using CarBook.Aplication.Services;
 using CarBook.Persistence.Services;
 
@@ -13,6 +12,7 @@ namespace CarBook.WebUI.Extensions
 		{
 			services.AddControllersWithViews();
 			services.AddHttpClient();
+			services.AddScoped<ICarService, CarService>();
 			services.AddScoped<IContactService, ContactService>();
 			services.AddScoped<IContactApiClient, ContactApiClient>();
 			services.AddScoped<IAboutApiClient, AboutApiClient>();
@@ -25,9 +25,11 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<ICarPricingClient, CarPricingClient>();
 			services.AddScoped<ICategoryApiClient, CategoryApiClient>();
 			services.AddScoped<ITagCloudApiClient, TagCloudApiClient>();
+			services.AddScoped<IBrandApiClient, BrandApiClient>();
+
 
 			services.AddAutoMapper(typeof(MappingProfile).Assembly);
 			return services;
 		}
 	}
-	}
+}
