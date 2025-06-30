@@ -12,10 +12,14 @@ namespace CarBook.WebUI.Extensions
 		{
 			services.AddControllersWithViews();
 			services.AddHttpClient();
+
 			services.AddScoped<ICarService, CarService>();
 			services.AddScoped<IContactService, ContactService>();
 			services.AddScoped<IFeatureService, FeatureService>();
+			services.AddScoped<IBannerService, BannerService>();
 			services.AddScoped<IBrandService, BrandService>();
+
+
 			services.AddScoped<IContactApiClient, ContactApiClient>();
 			services.AddScoped<IAboutApiClient, AboutApiClient>();
 			services.AddScoped<IFooterAddressApiClient, FooterAddressApiClient>();

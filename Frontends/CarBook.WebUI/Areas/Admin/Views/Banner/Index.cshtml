@@ -1,0 +1,57 @@
+﻿@model List<BannerDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="row">
+        <div class="card-body">
+            <h4 class="card-title">Ana Sayfa Banner Alanı</h4>
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Başlık</th>
+                            <th>Açıklama</th>
+                            <th>Video Url</th>
+                            <th>Video Açıklama</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                            <th>Youtube'da Aç'</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@count</th>
+                                <td>@item.Title</td>
+                                <td>@item.Description</td>
+                                <td>@item.VideoUrl</td>
+                                <td>@item.VideoDescription</td>
+                                <td><a href="/Admin/Banner/RemoveBanner/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                                <td><a href="/Admin/Banner/UpdateBanner/@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+                                <td><a href="/Admin/Banner/UpdateBanner/@item.Id" class="btn btn-outline-dark">Youtube'da Aç'</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Admin/Banner/CreateBanner/" class="btn btn-outline-primary">Yeni Banner Girişi</a>
+            </div>
+
+        </div>
+        <!-- end card-body-->
+    </div>
+    <!-- end card -->
+
+</div>
+
+
+
+

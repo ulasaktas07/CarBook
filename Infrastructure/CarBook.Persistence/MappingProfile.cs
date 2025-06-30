@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
+using CarBook.Aplication.Features.CQRS.Commands.BannerCommands;
 using CarBook.Aplication.Features.CQRS.Commands.BrandCommands;
 using CarBook.Aplication.Features.CQRS.Commands.CarCommands;
 using CarBook.Aplication.Features.CQRS.Commands.ContactCommands;
+using CarBook.Aplication.Features.CQRS.Results.BannerResults;
 using CarBook.Aplication.Features.Mediator.Commands.FeatureCommands;
+using CarBook.Dto.BannerDtos;
 using CarBook.Dto.BrandDtos;
 using CarBook.Dto.CarDtos;
 using CarBook.Dto.ContactDtos;
@@ -22,6 +25,9 @@ namespace CarBook.Persistence
 			CreateMap<UpdateFeatureRequest, UpdateFeatureCommand>();
 			CreateMap<CreateBrandRequest, CreateBrandCommand>();
 			CreateMap<UpdateBrandRequest, UpdateBrandCommand>();
+			CreateMap<CreateBannerRequest, CreateBannerCommand>();
+			CreateMap<CreateBannerResult, GetBannerQueryResult>();
+			CreateMap<UpdateBannerRequest, UpdateBannerCommand>();
 
 		}
 	}
