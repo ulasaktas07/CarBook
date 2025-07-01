@@ -20,6 +20,7 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<IBannerService, BannerService>();
 			services.AddScoped<IBrandService, BrandService>();
 			services.AddScoped<IAboutService, AboutService>();
+			services.AddScoped<IWriterService, WriterService>();
 
 
 			services.AddScoped<IContactApiClient, ContactApiClient>();
@@ -35,6 +36,7 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<ITagCloudApiClient, TagCloudApiClient>();
 			services.AddScoped<IBrandApiClient, BrandApiClient>();
 			services.AddScoped<IFeatureApiClient, FeatureApiClient>();
+			services.AddScoped<IWriterApiClient, WriterApiClient>();
 
 
 			services.AddAutoMapper(typeof(MappingProfile).Assembly);

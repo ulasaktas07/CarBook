@@ -1,0 +1,53 @@
+﻿@model List<WriterDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+
+}
+
+<div class="page-content">
+    <div class="row">
+        <div class="card-body">
+            <h4 class="card-title">Yazar Listesi</h4>
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ad Soyad</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                            <th>Yazarın Blogları</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@count</th>
+                                <td><img src="@item.ImageUrl" width="50" height="50" style="margin-right:10px" alt="Alternate Text" /> @item.Name</td>
+                                <td><a href="/Admin/Writer/RemoveWriter/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                                <td><a href="/Admin/Writer/UpdateWriter/@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+                                <td><a href="/Admin/Writer/UpdateWriter/@item.Id" class="btn btn-outline-dark">Yazarın Blogları</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Admin/Writer/CreateWriter/" class="btn btn-outline-primary">Yeni Yazar Girişi</a>
+            </div>
+
+        </div>
+        <!-- end card-body-->
+    </div>
+    <!-- end card -->
+
+</div>
+
+
+
+
+

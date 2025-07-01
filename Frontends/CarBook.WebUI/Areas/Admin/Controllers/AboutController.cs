@@ -1,10 +1,7 @@
-﻿using Azure.Core;
-using CarBook.Aplication.Interfaces;
+﻿using CarBook.Aplication.Interfaces;
 using CarBook.Aplication.Interfaces.Services;
 using CarBook.Dto.AboutDtos;
-using CarBook.Persistence.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace CarBook.WebUI.Areas.Admin.Controllers
 {
