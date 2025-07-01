@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CarBook.Aplication.Features.CQRS.Commands.CarCommands;
 using CarBook.Aplication.Interfaces;
+using CarBook.Aplication.Interfaces.Services;
 using CarBook.Dto.CarDtos;
 
 namespace CarBook.Persistence.Services

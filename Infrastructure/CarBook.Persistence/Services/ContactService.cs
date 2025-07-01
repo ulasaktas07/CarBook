@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CarBook.Aplication.Features.CQRS.Commands.ContactCommands;
 using CarBook.Aplication.Interfaces;
+using CarBook.Aplication.Interfaces.Services;
 using CarBook.Dto.ContactDtos;
 namespace CarBook.Persistence.Services
 {

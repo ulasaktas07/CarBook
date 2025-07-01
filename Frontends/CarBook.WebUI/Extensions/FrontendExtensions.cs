@@ -1,5 +1,6 @@
 ﻿using CarBook.Aplication.Interfaces;
 using CarBook.Aplication.Interfaces.ApiConsume;
+using CarBook.Aplication.Interfaces.Services;
 using CarBook.Persistence;
 using CarBook.Persistence.Client;
 using CarBook.Persistence.Services;
@@ -18,6 +19,7 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<IFeatureService, FeatureService>();
 			services.AddScoped<IBannerService, BannerService>();
 			services.AddScoped<IBrandService, BrandService>();
+			services.AddScoped<IAboutService, AboutService>();
 
 
 			services.AddScoped<IContactApiClient, ContactApiClient>();

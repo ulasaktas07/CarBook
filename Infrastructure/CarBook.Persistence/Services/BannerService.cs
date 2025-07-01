@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CarBook.Aplication.Features.CQRS.Commands.BannerCommands;
 using CarBook.Aplication.Interfaces;
+using CarBook.Aplication.Interfaces.Services;
 using CarBook.Dto.BannerDtos;
 
 namespace CarBook.Persistence.Services
