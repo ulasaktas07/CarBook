@@ -1,6 +1,6 @@
 ﻿namespace CarBook.Dto.ServiceDtos
 {
-	public class ServiceDto:ApiResponse<ServiceDto>
+	public class ServiceDto
 	{
 		public int Id { get; set; }
 		public string Title { get; set; } = default!;

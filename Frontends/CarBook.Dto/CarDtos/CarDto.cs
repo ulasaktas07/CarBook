@@ -1,7 +1,7 @@
 ﻿
 namespace CarBook.Dto.CarDtos
 {
-	public class CarDto:ApiResponse<CarDto>
+	public class CarDto
 	{
 		public int Id { get; set; }
 		public int BrandID { get; set; }

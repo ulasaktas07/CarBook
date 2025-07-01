@@ -1,0 +1,54 @@
+﻿@model List<CategoryDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+
+}
+
+<div class="page-content">
+    <div class="row">
+        <div class="card-body">
+            <h4 class="card-title">Kategori Listesi</h4>
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kategori Adı</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                            <th>Kategoriye Ait Bloglar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@count</th>
+                                <td>@item.Name</td>
+                                <td><a href="/Admin/Category/RemoveCategory/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                                <td><a href="/Admin/Category/UpdateCategory/@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+                                <td><a href="#" class="btn btn-outline-dark">Kategoriye Ait Bloglar</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Admin/Category/CreateCategory/" class="btn btn-outline-primary">Yeni Kategori Girişi</a>
+            </div>
+
+        </div>
+        <!-- end card-body-->
+    </div>
+    <!-- end card -->
+
+</div>
+
+
+
+
+
+
+

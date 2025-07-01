@@ -1,6 +1,6 @@
 ﻿namespace CarBook.Dto.FooterAddressDtos
 {
-	public class FooterAddressDto:ApiResponse<FooterAddressDto>
+	public class FooterAddressDto
 	{
 		public int Id { get; set; }
 		public string Description { get; set; } = default!;

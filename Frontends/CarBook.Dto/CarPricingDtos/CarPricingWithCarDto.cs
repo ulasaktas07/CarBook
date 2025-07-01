@@ -1,6 +1,6 @@
 ﻿namespace CarBook.Dto.CarPricingDtos
 {
-	public class CarPricingWithCarDto : ApiResponse<CarPricingWithCarDto>
+	public class CarPricingWithCarDto 
 	{
 		public int Id { get; set; }
 		public string Brand { get; set; }= default!;

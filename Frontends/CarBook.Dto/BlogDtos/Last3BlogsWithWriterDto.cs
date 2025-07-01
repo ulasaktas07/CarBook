@@ -1,6 +1,6 @@
 ﻿namespace CarBook.Dto.BlogDtos
 {
-	public class Last3BlogsWithWriterDto : ApiResponse<Last3BlogsWithWriterDto>
+	public class Last3BlogsWithWriterDto 
 	{
 		public int Id { get; set; }
 		public string Title { get; set; } = default!;

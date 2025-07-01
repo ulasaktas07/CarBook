@@ -21,6 +21,7 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<IBrandService, BrandService>();
 			services.AddScoped<IAboutService, AboutService>();
 			services.AddScoped<IWriterService, WriterService>();
+			services.AddScoped<ICategoryService, CategoryService>();
 
 
 			services.AddScoped<IContactApiClient, ContactApiClient>();

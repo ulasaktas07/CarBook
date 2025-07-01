@@ -1,6 +1,6 @@
 ﻿namespace CarBook.Dto.BannerDtos
 {
-	public class BannerDto:ApiResponse<BannerDto>
+	public class BannerDto
 	{
 		public int Id { get; set; }
 		public string Title { get; set; } = default!;

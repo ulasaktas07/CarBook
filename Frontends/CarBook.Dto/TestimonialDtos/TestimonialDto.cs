@@ -1,5 +1,5 @@
 ﻿namespace CarBook.Dto.TestimonialDtos;
-public class TestimonialDto : ApiResponse<TestimonialDto>
+public class TestimonialDto 
 {
 	public int Id { get; set; }
 	public string Name { get; set; } = default!;

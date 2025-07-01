@@ -1,0 +1,28 @@
+﻿@model UpdateCategoryRequest
+
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="row">
+        <div class="card-body">
+
+            <h4 class="card-title">Yeni Kategori Girişi</h4>
+            <form method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label for="exampleInputTitle">Başlık</label>
+                    <input type="text" class="form-control" id="exampleInputTitle" asp-for="Name" placeholder="Kategoriyi Giriniz">
+                </div>
+
+                <button type="submit" class="btn btn-primary waves-effect waves-light"> Kategoriyi Güncelle</button>
+            </form>
+
+        </div> <!-- end card-body-->
+    </div> <!-- end card-->
+
+
+</div>
+<!-- end card-body-->

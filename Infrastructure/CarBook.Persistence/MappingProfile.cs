@@ -3,6 +3,7 @@ using CarBook.Aplication.Features.CQRS.Commands.AboutCommands;
 using CarBook.Aplication.Features.CQRS.Commands.BannerCommands;
 using CarBook.Aplication.Features.CQRS.Commands.BrandCommands;
 using CarBook.Aplication.Features.CQRS.Commands.CarCommands;
+using CarBook.Aplication.Features.CQRS.Commands.CategoryCommands;
 using CarBook.Aplication.Features.CQRS.Commands.ContactCommands;
 using CarBook.Aplication.Features.CQRS.Results.BannerResults;
 using CarBook.Aplication.Features.Mediator.Commands.FeatureCommands;
@@ -11,6 +12,7 @@ using CarBook.Dto.AboutDtos;
 using CarBook.Dto.BannerDtos;
 using CarBook.Dto.BrandDtos;
 using CarBook.Dto.CarDtos;
+using CarBook.Dto.CategoryDtos;
 using CarBook.Dto.ContactDtos;
 using CarBook.Dto.FeatureDtos;
 using CarBook.Dto.WriterDtos;
@@ -42,6 +44,9 @@ namespace CarBook.Persistence
 
 			CreateMap<CreateWriterRequest, CreateWriterCommand>();
 			CreateMap<UpdateWriterRequest, UpdateWriterCommand>();
+
+			CreateMap<CreateCategoryRequest, CreateCategoryCommand>();
+			CreateMap<UpdateCategoryRequest, UpdateCategoryCommand>();
 
 		}
 	}

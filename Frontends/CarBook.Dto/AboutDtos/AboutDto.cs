@@ -1,5 +1,5 @@
 ﻿namespace CarBook.Dto.AboutDtos;
-public class AboutDto: ApiResponse<AboutDto>
+public class AboutDto
 {
 	public int Id { get; set; }
 	public string Title { get; set; } = default!;
