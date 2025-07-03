@@ -22,6 +22,7 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<IAboutService, AboutService>();
 			services.AddScoped<IWriterService, WriterService>();
 			services.AddScoped<ICategoryService, CategoryService>();
+			services.AddScoped<IPricingService, PricingService>();
 
 
 			services.AddScoped<IContactApiClient, ContactApiClient>();
@@ -39,6 +40,7 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<IFeatureApiClient, FeatureApiClient>();
 			services.AddScoped<IWriterApiClient, WriterApiClient>();
 			services.AddScoped<ICommentApiClient, CommentApiClient>();
+			services.AddScoped<IPricingApiClient, PricingApiClient>();
 
 
 			services.AddAutoMapper(typeof(MappingProfile).Assembly);
