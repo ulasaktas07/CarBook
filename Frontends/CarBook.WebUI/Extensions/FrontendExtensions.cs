@@ -38,6 +38,7 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<IBrandApiClient, BrandApiClient>();
 			services.AddScoped<IFeatureApiClient, FeatureApiClient>();
 			services.AddScoped<IWriterApiClient, WriterApiClient>();
+			services.AddScoped<ICommentApiClient, CommentApiClient>();
 
 
 			services.AddAutoMapper(typeof(MappingProfile).Assembly);

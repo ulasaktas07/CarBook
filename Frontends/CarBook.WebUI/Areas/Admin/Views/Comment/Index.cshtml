@@ -1,0 +1,27 @@
+﻿@model List<CommentDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+
+}
+
+<div class="page-content">
+    <h4 class="card-title">Yorum Listesi - BlogID: @ViewBag.BlogId</h4>
+    @foreach (var item in Model)
+    {
+        count++;
+        <div class="card">
+            <h5 class="card-header">Yorum - @count - Tarih: @item.Created.ToShortDateString()</h5>
+            <div class="card-body">
+                <h4 class="card-title">@item.Name  </h4>
+                <p class="card-text">
+                    @item.Description
+                </p>
+                <a href="#" class="btn btn-primary waves-effect waves-light">Yorumu Kaldır</a>
+            </div>
+        </div>
+    }
+</div>
+<!-- end card-body-->

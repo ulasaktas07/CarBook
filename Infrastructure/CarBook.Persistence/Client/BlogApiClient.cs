@@ -7,6 +7,15 @@ namespace CarBook.Persistence.Client
 {
 	public class BlogApiClient(IHttpClientFactory httpClientFactory) : IBlogApiClient
 	{
+		public async Task<bool> DeleteBlogAsync(int id)
+		{
+			var client = httpClientFactory.CreateClient();
+			var response = await client.DeleteAsync($"https://localhost:7274/api/Blogs/{id}");
+			if (!response.IsSuccessStatusCode)
+				return false;
+			return true;
+		}
+
 		public async Task<List<BlogWithWriterDto>> GetAllBlogsWithWriterAsync()
 		{
 			var client = httpClientFactory.CreateClient();

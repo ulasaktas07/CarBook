@@ -9,7 +9,7 @@ namespace CarBook.WepApi.Controllers
 	public class CommentsController(IMediator mediator) : CustomBaseController
 	{
 		[HttpGet]
-		public async Task<IActionResult> GetAll()=> CreateActionResult(await mediator.Send(new GetCommentQuery()));
+		public async Task<IActionResult> GetAll() => CreateActionResult(await mediator.Send(new GetCommentQuery()));
 
 		[HttpGet("{id:int}")]
 		public async Task<IActionResult> GetById(int id) => CreateActionResult(await mediator.Send(new GetCommentByIdQuery(id)));
@@ -22,6 +22,9 @@ namespace CarBook.WepApi.Controllers
 
 		[HttpDelete("{id:int}")]
 		public async Task<IActionResult> Remove(int id) => CreateActionResult(await mediator.Send(new RemoveCommentCommand(id)));
+
+		[HttpGet("CommentListByBlog")]
+		public async Task<IActionResult> GetCommentsByBlogId(int id) => CreateActionResult(await mediator.Send(new GetCommentsByBlogIdQuery(id)));
 
 	}
 }

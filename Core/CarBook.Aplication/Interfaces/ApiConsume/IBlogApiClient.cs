@@ -9,5 +9,8 @@ namespace CarBook.Aplication.Interfaces
 		Task<BlogByIdDto> GetBlogByIdAsync(int id);
 
 		Task<WriterByBlogWriterDto> GetWriterByBlogIdAsync(int id);
+
+		Task<bool> DeleteBlogAsync(int id);
+
 	}
 }

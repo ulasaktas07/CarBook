@@ -1,0 +1,61 @@
+﻿@model List<BlogWithWriterDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+
+}
+
+
+<div class="page-content">
+    <div class="row">
+        <div class="card-body">
+            <h4 class="card-title">Blog Listesi</h4>
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Başlık</th>
+                            <th>Yazar</th>
+                            <th>Kategori</th>
+                            <th>Tarih</th>
+                            <th>Kaldır</th>
+                            <th>Blogu Aç</th>
+                            <th>Yorumlar </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@count</th>
+                                <td>@item.title</td>
+                                <td>@item.writerName</td>
+                                <td>@item.categoryName</td>
+                                <td>@item.created.ToShortDateString()</td>
+                                <td><a href="/Admin/Blog/RemoveBlog/@item.id" class="btn btn-outline-danger">Kaldır</a></td>
+                                <td><a href="/Blog/BlogDetail/@item.id" class="btn btn-outline-success">Blogu Aç</a></td>
+                                <td><a href="/Admin/Comment/Index/@item.id" class="btn btn-outline-dark">Yorumlar</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <!-- end card-body-->
+    </div>
+    <!-- end card -->
+
+</div>
+
+
+
+
+
+
+
+
