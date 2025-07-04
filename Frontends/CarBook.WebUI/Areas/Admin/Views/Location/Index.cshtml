@@ -1,0 +1,52 @@
+﻿@model List<LocationDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="row">
+        <div class="card-body">
+            <h4 class="card-title">Lokasyon Bilgileri Alanı</h4>
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Lokasyon</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                            <th>Konumu Aç</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@count</th>
+                                <td>@item.Name</td>
+                                <td><a href="/Admin/Location/RemoveLocation/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                                <td><a href="/Admin/Location/UpdateLocation/@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+                                <td><a href="/Admin/Location/LocationDetail/@item.Id" class="btn btn-outline-dark">Konumu Aç</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Admin/Location/CreateLocation/" class="btn btn-outline-primary">Lokasyon Alanı Girişi</a>
+            </div>
+
+        </div>
+        <!-- end card-body-->
+    </div>
+    <!-- end card -->
+
+</div>
+
+
+
+
+
+

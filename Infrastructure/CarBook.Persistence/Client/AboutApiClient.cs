@@ -1,8 +1,6 @@
-﻿using Azure.Core;
-using CarBook.Aplication.Interfaces;
+﻿using CarBook.Aplication.Interfaces;
 using CarBook.Dto;
 using CarBook.Dto.AboutDtos;
-using CarBook.Dto.BannerDtos;
 using Newtonsoft.Json;
 using System.Text;
 
