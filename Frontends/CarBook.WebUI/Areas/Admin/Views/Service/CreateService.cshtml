@@ -1,0 +1,35 @@
+﻿@model CreateServiceRequest
+
+@{
+    ViewData["Title"] = "CreateService";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="row">
+        <div class="card-body">
+
+            <h4 class="card-title">Yeni Hizmet Bigisi Girişi</h4>
+            <form method="post">
+                <div class="form-group">
+                    <label for="exampleInputTitle">Başlık</label>
+                    <input type="text" class="form-control" id="exampleInputTitle" asp-for="Title" placeholder="Başlığı Giriniz">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputDescription">Açıklama</label>
+                    <textarea rows="5" class="form-control" id="exampleInputDescription" asp-for="Description" placeholder="Açıklama Giriniz"> </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputIconUrl">Hizmet ReIcon Urlsmi</label>
+                    <input type="text" class="form-control" id="exampleInputIconUrl" asp-for="IconUrl" placeholder="Icon Linkini Giriniz">
+                </div>
+
+                <button type="submit" class="btn btn-primary waves-effect waves-light"> Hizmet Bilgisini Kaydet</button>
+            </form>
+
+        </div> <!-- end card-body-->
+    </div> <!-- end card-->
+
+
+</div>
+<!-- end card-body-->

@@ -25,6 +25,7 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<IPricingService, PricingService>();
 			services.AddScoped<IFooterAddressService, FooterAddressService>();
 			services.AddScoped<ILocationService, LocationService>();
+			services.AddScoped<IServiceService, ServiceService>();
 
 
 			services.AddScoped<IContactApiClient, ContactApiClient>();
