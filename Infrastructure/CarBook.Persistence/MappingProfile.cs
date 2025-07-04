@@ -12,6 +12,7 @@ using CarBook.Aplication.Features.Mediator.Commands.LocationCommands;
 using CarBook.Aplication.Features.Mediator.Commands.PricingCommands;
 using CarBook.Aplication.Features.Mediator.Commands.ServiceCommands;
 using CarBook.Aplication.Features.Mediator.Commands.SocialMediaCommands;
+using CarBook.Aplication.Features.Mediator.Commands.TestimonialCommands;
 using CarBook.Aplication.Features.Mediator.Commands.WriterCommands;
 using CarBook.Dto.AboutDtos;
 using CarBook.Dto.BannerDtos;
@@ -25,6 +26,7 @@ using CarBook.Dto.LocationDtos;
 using CarBook.Dto.PricingDtos;
 using CarBook.Dto.ServiceDtos;
 using CarBook.Dto.SocialMediaDtos;
+using CarBook.Dto.TestimonialDtos;
 using CarBook.Dto.WriterDtos;
 
 
@@ -72,6 +74,9 @@ namespace CarBook.Persistence
 
 			CreateMap<CreateSocialMediaRequest, CreateSocialMediaCommand>();
 			CreateMap<UpdateSocialMediaRequest, UpdateSocialMediaCommand>();
+
+			CreateMap<CreateTestimonialRequest, CreateTestimonialCommand>();
+			CreateMap<UpdateTestimonialRequest, UpdateTestimonialCommand>();
 
 
 

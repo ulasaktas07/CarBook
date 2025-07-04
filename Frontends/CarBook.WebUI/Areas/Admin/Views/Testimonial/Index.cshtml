@@ -1,0 +1,52 @@
+﻿@model List<TestimonialDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="row">
+        <div class="card-body">
+            <h4 class="card-title">Referans Alanı</h4>
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ad Soyad</th>
+                            <th>Başlık</th>
+                            <th>Yorum</th>
+                            <th>Görsel</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><img src="@item.ImageUrl" width="50" height="50" alt="Alternate Text" /></td>
+                                <td>@item.Name</td>
+                                <td>@item.Title</td>
+                                <td><a href="/Admin/Testimonial/RemoveTestimonial/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                                <td><a href="/Admin/Testimonial/UpdateTestimonial/@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Admin/Testimonial/CreateTestimonial/" class="btn btn-outline-primary">Yeni Referans Alanı Girişi</a>
+            </div>
+
+        </div>
+        <!-- end card-body-->
+    </div>
+    <!-- end card -->
+
+</div>
+
+
+
+
+
