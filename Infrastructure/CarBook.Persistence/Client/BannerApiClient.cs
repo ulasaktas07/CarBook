@@ -1,9 +1,7 @@
 ﻿using CarBook.Aplication.Interfaces;
 using CarBook.Dto;
 using CarBook.Dto.BannerDtos;
-using CarBook.Dto.FeatureDtos;
 using Newtonsoft.Json;
-using System.Net.Http;
 using System.Text;
 
 namespace CarBook.Persistence.Client
