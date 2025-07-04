@@ -10,7 +10,7 @@ namespace CarBook.Aplication.Features.CQRS.Handlers.ContactHandlers
 		public async Task<ServiceResult<List<GetContactQueryResult>>> Handle()
 		{
 			var contacts = await repository.GetAllAsync();
-			var result = contacts.Select(c => new GetContactQueryResult(c.Id, c.Name, c.Email,c.Subject,c.Message)).ToList();
+			var result = contacts.Select(c => new GetContactQueryResult(c.Id, c.Name, c.Email,c.Subject,c.Message,c.Created)).ToList();
 
 			return ServiceResult<List<GetContactQueryResult>>.Success(result);
 		}

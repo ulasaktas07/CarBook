@@ -1,0 +1,40 @@
+﻿@model CreateFooterAddressRequest
+
+@{
+    ViewData["Title"] = "CreateFooterAddress";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="page-content">
+    <div class="row">
+        <div class="card-body">
+
+            <h4 class="card-title">Yeni Adres Bigisi Girişi</h4>
+            <form method="post">
+                <div class="form-group">
+                    <label for="exampleInputAddress">Adres</label>
+                    <input type="text" class="form-control" id="exampleInputAddress" asp-for="Address" placeholder="Adres Giriniz">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPhone">Telefon</label>
+                    <input type="tel" class="form-control" id="exampleInputPhone" asp-for="Phone" placeholder="Telefon Giriniz">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail" asp-for="Email" placeholder="Email Giriniz">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputDescription">Açıklama</label>
+                    <textarea rows="5" class="form-control" id="exampleInputDescription" asp-for="Description" placeholder="Açıklama Giriniz"> </textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary waves-effect waves-light"> Adres Bilgisini Kaydet</button>
+            </form>
+
+        </div> <!-- end card-body-->
+    </div> <!-- end card-->
+
+
+</div>
+<!-- end card-body-->

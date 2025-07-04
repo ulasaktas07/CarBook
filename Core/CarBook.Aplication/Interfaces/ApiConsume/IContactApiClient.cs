@@ -7,5 +7,7 @@ namespace CarBook.Aplication.Interfaces
 	{
 		Task<bool> SendCreateCommandAsync(CreateContactCommand command);
 
+		Task<List<ContactDto>> GetContactsAsync();
+
 	}
 }
