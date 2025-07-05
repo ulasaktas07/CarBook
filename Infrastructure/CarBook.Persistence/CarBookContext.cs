@@ -13,6 +13,7 @@ namespace CarBook.Persistence
 		public DbSet<CarDescription> CarDescriptions { get; set; } = default!;
 		public DbSet<CarFeature> CarFeatures { get; set; } = default!;
 		public DbSet<CarPricing> CarPricings { get; set; } = default!;
+		public DbSet<Pricing> Pricing { get; set; } = default!;
 		public DbSet<Category> Categories { get; set; } = default!;
 		public DbSet<Contact> Contacts { get; set; } = default!;
 		public DbSet<Feature> Features { get; set; } = default!;

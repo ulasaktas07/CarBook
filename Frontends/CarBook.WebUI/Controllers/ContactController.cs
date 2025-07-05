@@ -1,11 +1,6 @@
-﻿using Azure.Core;
-using CarBook.Aplication.Interfaces.Services;
-using CarBook.Dto;
+﻿using CarBook.Aplication.Services;
 using CarBook.Dto.ContactDtos;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarBook.WebUI.Controllers
 {

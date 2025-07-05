@@ -1,0 +1,3 @@
+﻿namespace CarBook.Aplication.Features.Mediator.Results.StatisticsResults;
+
+public record GetCarBrandAndModelByRentPriceDailyMaxQueryResult(string GetCarBrandAndModelByRentPriceDailyMax);

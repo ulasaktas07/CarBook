@@ -1,5 +1,5 @@
 ﻿using CarBook.Aplication.Interfaces.ApiConsume;
-using CarBook.Aplication.Interfaces.Services;
+using CarBook.Aplication.Services;
 using CarBook.Dto.LocationDtos;
 using Microsoft.AspNetCore.Mvc;
 

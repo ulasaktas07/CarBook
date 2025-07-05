@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CarBook.Aplication.Features.Mediator.Commands.FooterAddressCommands;
 using CarBook.Aplication.Interfaces;
-using CarBook.Aplication.Interfaces.Services;
+using CarBook.Aplication.Services;
 using CarBook.Dto.FooterAddressDtos;
 
 namespace CarBook.Persistence.Services

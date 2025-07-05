@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CarBook.Aplication.Features.Mediator.Commands.WriterCommands;
 using CarBook.Aplication.Interfaces.ApiConsume;
-using CarBook.Aplication.Interfaces.Services;
+using CarBook.Aplication.Services;
 using CarBook.Dto.WriterDtos;
 
 namespace CarBook.Persistence.Services

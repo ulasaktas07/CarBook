@@ -1,10 +1,7 @@
 ﻿using CarBook.Aplication.Interfaces.ApiConsume;
-using CarBook.Aplication.Interfaces.Services;
+using CarBook.Aplication.Services;
 using CarBook.Dto.PricingDtos;
-using CarBook.Persistence.Client;
-using CarBook.Persistence.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace CarBook.WebUI.Areas.Admin.Controllers
 {

@@ -1,0 +1,2 @@
+﻿namespace CarBook.Aplication.Features.Mediator.Results.StatisticsResults;
+public record GetCarCountByTransmissionIsAutoQueryResult(int CarCountByTransmissionIsAuto);

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CarBook.Aplication.Features.CQRS.Commands.BrandCommands;
 using CarBook.Aplication.Interfaces.ApiConsume;
-using CarBook.Aplication.Interfaces.Services;
+using CarBook.Aplication.Services;
 using CarBook.Dto.BrandDtos;
 
 namespace CarBook.Persistence.Services

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CarBook.Aplication.Features.Mediator.Commands.TestimonialCommands;
 using CarBook.Aplication.Interfaces;
-using CarBook.Aplication.Interfaces.Services;
+using CarBook.Aplication.Services;
 using CarBook.Dto.TestimonialDtos;
 
 namespace CarBook.Persistence.Services

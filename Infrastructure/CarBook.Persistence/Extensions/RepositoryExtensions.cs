@@ -5,6 +5,7 @@ using CarBook.Aplication.Interfaces.BlogInterfaces;
 using CarBook.Aplication.Interfaces.CarInterfaces;
 using CarBook.Aplication.Interfaces.CarPricingInterfaces;
 using CarBook.Aplication.Interfaces.CommentInterfaces;
+using CarBook.Aplication.Interfaces.StatisticsInterfaces;
 using CarBook.Aplication.Interfaces.TagCloudInterfaces;
 using CarBook.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -35,6 +36,7 @@ namespace CarBook.Persistence.Extensions
 			services.AddScoped(typeof(ICarPricingRepository), typeof(CarPricingRepository));
 			services.AddScoped(typeof(ITagCloudRepository), typeof(TagCloudRepository));
 			services.AddScoped(typeof(ICommentRepository), typeof(CommentRepository));
+			services.AddScoped(typeof(IStatisticsRepository), typeof(StatisticsRepository));
 
 
 			services.AddScoped<IUnitOfWork, UnitOfWork>();

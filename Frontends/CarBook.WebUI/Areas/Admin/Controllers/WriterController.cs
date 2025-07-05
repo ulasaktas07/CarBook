@@ -1,8 +1,7 @@
 ﻿using CarBook.Aplication.Interfaces.ApiConsume;
-using CarBook.Aplication.Interfaces.Services;
+using CarBook.Aplication.Services;
 using CarBook.Dto.WriterDtos;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace CarBook.WebUI.Areas.Admin.Controllers
 {
