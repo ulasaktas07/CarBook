@@ -51,14 +51,14 @@ namespace CarBook.Persistence.Repositories
 
 		public Task<int> GetCarCountAsync()=>context.Cars.CountAsync();
 
-		public Task<int> GetCarCountByFuelElectricAsync()=> context.Cars
-			.Where(x => x.Fuel == "Elektrik").CountAsync();
+		public async Task<int> GetCarCountByFuelElectricAsync()=>await context.Cars
+			.Where(x => x.Fuel == "Elektrikli").CountAsync();
 
 
 		public Task<int> GetCarCountByFuelGasolineOrDieselAsync()=> context.Cars
 			.Where(x => x.Fuel == "Benzin" || x.Fuel == "Dizel").CountAsync();
 
-		public Task<int> GetCarCountByKmSmallerThan1000Async()=> context.Cars
+		public async Task<int> GetCarCountByKmSmallerThan1000Async()=>await context.Cars
 			.Where(x => x.Km < 1000).CountAsync();
 
 

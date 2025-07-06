@@ -4,6 +4,7 @@ using CarBook.Aplication.Features.Mediator.Queries.StatisticsQueries;
 using LocationBook.Aplication.Features.Mediator.Queries.StatisticsQueries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using WriterBook.Aplication.Features.Mediator.Queries.StatisticsQueries;
 
 namespace CarBook.WepApi.Controllers
 {
@@ -21,6 +22,9 @@ namespace CarBook.WepApi.Controllers
 
 		[HttpGet("GetBlogCount")]
 		public async Task<IActionResult> GetBlogCount() => CreateActionResult(await mediator.Send(new GetBlogCountQuery()));
+
+		[HttpGet("GetWriterCount")]
+		public async Task<IActionResult> GetWriterCount() => CreateActionResult(await mediator.Send(new GetWriterCountQuery()));
 
 		[HttpGet("GetAvrgRentPriceForDaily")]
 		public async Task<IActionResult> GetAvrgRentPriceForDaily() =>
@@ -42,7 +46,7 @@ namespace CarBook.WepApi.Controllers
 		public async Task<IActionResult> GetBrandNameByMaxCar() => 
 			CreateActionResult(await mediator.Send(new GetBrandNameByMaxCarQuery()));
 
-		[HttpGet(" GetBlogTitleByMaxBlogComment")]
+		[HttpGet("GetBlogTitleByMaxBlogComment")]
 		public async Task<IActionResult> GetBlogTitleByMaxBlogComment() => 
 			CreateActionResult(await mediator.Send(new GetBlogTitleByMaxBlogCommentQuery()));
 
