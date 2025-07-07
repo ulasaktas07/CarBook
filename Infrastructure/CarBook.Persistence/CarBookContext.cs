@@ -26,9 +26,24 @@ namespace CarBook.Persistence
 		public DbSet<Blog> Blogs { get; set; } = default!;
 		public DbSet<TagCloud> TagClouds { get; set; } = default!;
 		public DbSet<Comment> Comments { get; set; } = default!;
+		public DbSet<RentACar> RentACars { get; set; } = default!;
+		public DbSet<RentACarProcess> RentACarProcesses { get; set; } = default!;
+		public DbSet<Customer> Customers { get; set; } = default!;
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
+			modelBuilder.Entity<RentACarProcess>()
+			.HasOne(r => r.PickUpLocationNavigation)
+		  .WithMany(l => l.PickUps)
+	        .HasForeignKey(r => r.PickUpLocation)
+	        .OnDelete(DeleteBehavior.Restrict);
+
+			modelBuilder.Entity<RentACarProcess>()
+				.HasOne(r => r.DropOffLocationNavigation)
+				.WithMany(l => l.DropOffs)
+				.HasForeignKey(r => r.DropOffLocation)
+				.OnDelete(DeleteBehavior.Restrict);
+
 			modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 			base.OnModelCreating(modelBuilder);
 
