@@ -1,6 +1,7 @@
 ﻿using CarBook.Aplication.Interfaces.ApiConsume;
 using CarBook.Dto;
 using CarBook.Dto.LocationDtos;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using System.Text;
 
@@ -38,6 +39,7 @@ namespace CarBook.Persistence.Client
 
 			var jsonData = await response.Content.ReadAsStringAsync();
 			var apiResponse = JsonConvert.DeserializeObject<ApiResponse<LocationDto>>(jsonData);
+			List<SelectListItem> selectList = new List<SelectListItem>();
 
 			return apiResponse?.Data ?? new List<LocationDto>();
 		}

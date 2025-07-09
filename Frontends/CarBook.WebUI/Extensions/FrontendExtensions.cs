@@ -49,6 +49,7 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<ILocationApiClient, LocationApiClient>();
 			services.AddScoped<ISocialMediaApiClient, SocialMediaApiClient>();
 			services.AddScoped<IStatisticsApiClient, StatisticsApiClient>();
+			services.AddScoped<IRentACarApiClient, RentACarApiClient>();
 
 
 			services.AddAutoMapper(typeof(MappingProfile).Assembly);

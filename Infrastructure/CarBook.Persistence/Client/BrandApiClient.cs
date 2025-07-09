@@ -39,7 +39,7 @@ namespace CarBook.Persistence.Client
 		{
 			var client = httpClientFactory.CreateClient();
 			var jsonContent = JsonConvert.SerializeObject(createBrandRequest);
-			var content = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
+			var content = new StringContent(jsonContent,Encoding.UTF8, "application/json");
 			var response = await client.PostAsync("https://localhost:7274/api/Brands", content);
 			if(!response.IsSuccessStatusCode)
 				return false;
