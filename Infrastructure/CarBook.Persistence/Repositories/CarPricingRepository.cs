@@ -13,11 +13,13 @@ namespace CarBook.Persistence.Repositories
 
 		public async Task<List<CarPricingViewModel>> GetCarPricingWithTimePeriod()
 		{
-			var results = await context.CarPricings
+			var results = await context.CarPricings.Include(x=>x.Car).ThenInclude(x=>x.Brand)
 				.GroupBy(x => x.Car.Model)
 				.Select(g => new CarPricingViewModel
 				{
 					Model = g.Key.ToString(),
+					CoverImage = g.FirstOrDefault()!.Car.CoverImageUrl, // Assuming CoverImage is a property of Car entity
+					BrandName = g.FirstOrDefault()!.Car.Brand.Name, // Assuming Brand is a navigation property of Car entity
 					Amounts = new List<decimal>
 					{
 				g.Where(x => x.PricingId == 2).Sum(x => x.Price),  // Daily

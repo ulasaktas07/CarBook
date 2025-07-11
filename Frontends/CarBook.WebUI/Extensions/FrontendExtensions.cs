@@ -41,7 +41,7 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<IServiceApiClient, ServiceApiClient>();
 			services.AddScoped<IBannerApiClient, BannerApiClient>();
 			services.AddScoped<IBlogApiClient, BlogApiClient>();
-			services.AddScoped<ICarPricingClient, CarPricingClient>();
+			services.AddScoped<ICarPricingApiClient, CarPricingApiClient>();
 			services.AddScoped<ICategoryApiClient, CategoryApiClient>();
 			services.AddScoped<ITagCloudApiClient, TagCloudApiClient>();
 			services.AddScoped<IBrandApiClient, BrandApiClient>();

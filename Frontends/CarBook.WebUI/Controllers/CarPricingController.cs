@@ -1,14 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CarBook.Aplication.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace CarBook.WebUI.Controllers
 {
-	public class CarPricingController : Controller
+	public class CarPricingController(ICarPricingApiClient carPricingApiClient) : Controller
 	{
-		public IActionResult Index()
+		public async Task<IActionResult> Index()
 		{
 			ViewData["a"] = "Paketler";
 			ViewBag.b = "ARAÇ FİYAT PAKETLERİ";
-			return View();
+			var carPricingListWithModels = await carPricingApiClient.GetCarPricingListWithModelsAsync();
+			return View(carPricingListWithModels);
 		}
 	}
 }

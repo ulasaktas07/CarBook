@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.WebUI.Controllers
 {
-	public class CarController(ICarPricingClient carPricingClient) : Controller
+	public class CarController(ICarPricingApiClient carPricingClient) : Controller
 	{
 		public async Task<IActionResult> Index()
 		{

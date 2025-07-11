@@ -20,6 +20,8 @@ namespace CarBook.Aplication.Features.Mediator.Handlers.CarPricingHandlers
 			var result = carPricing.Select(cp => new GetCarPricingWithTimePeriodQueryResult
 			{
 				Model = cp.Model,
+				CoverImageUrl = cp.CoverImage,
+				BrandName = cp.BrandName,
 				DailyPrice = cp.Amounts[0],  // Assuming the first amount is daily
 				WeeklyPrice = cp.Amounts[1], // Assuming the second amount is weekly
 				MonthlyPrice = cp.Amounts[2] // Assuming the third amount is monthly
