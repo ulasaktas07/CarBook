@@ -12,7 +12,8 @@ namespace CarBook.Aplication.Features.Mediator.Handlers.StatisticsHandlers
 		{
 			var BrandCount = await repository.GetCarBrandAndModelByRentPriceDailyMinAsync();
 
-			return ServiceResult<GetCarBrandAndModelByRentPriceDailyMinQueryResult>.Success(new GetCarBrandAndModelByRentPriceDailyMinQueryResult(BrandCount));
+			return ServiceResult<GetCarBrandAndModelByRentPriceDailyMinQueryResult>.
+				Success(new GetCarBrandAndModelByRentPriceDailyMinQueryResult(BrandCount!));
 
 		}
 	}

@@ -12,7 +12,8 @@ namespace CarBook.Aplication.Features.Mediator.Handlers.StatisticsHandlers
 		{
 			var getCarBrandAndModelByRentPriceDailyMax = await repository. GetCarBrandAndModelByRentPriceDailyMaxAsync();
 
-			return ServiceResult< GetCarBrandAndModelByRentPriceDailyMaxQueryResult>.Success(new  GetCarBrandAndModelByRentPriceDailyMaxQueryResult(getCarBrandAndModelByRentPriceDailyMax));
+			return ServiceResult< GetCarBrandAndModelByRentPriceDailyMaxQueryResult>.
+				Success(new  GetCarBrandAndModelByRentPriceDailyMaxQueryResult(getCarBrandAndModelByRentPriceDailyMax!));
 
 		}
 	

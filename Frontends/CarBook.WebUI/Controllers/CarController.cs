@@ -1,8 +1,5 @@
 ﻿using CarBook.Aplication.Interfaces;
-using CarBook.Dto;
-using CarBook.Dto.CarDtos;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
 namespace CarBook.WebUI.Controllers
 {

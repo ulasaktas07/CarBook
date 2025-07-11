@@ -29,20 +29,21 @@ namespace CarBook.Persistence
 		public DbSet<RentACar> RentACars { get; set; } = default!;
 		public DbSet<RentACarProcess> RentACarProcesses { get; set; } = default!;
 		public DbSet<Customer> Customers { get; set; } = default!;
+		public DbSet<Reservation> Reservations { get; set; } = default!;
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<RentACarProcess>()
-			.HasOne(r => r.PickUpLocationNavigation)
-		  .WithMany(l => l.PickUps)
-	        .HasForeignKey(r => r.PickUpLocation)
-	        .OnDelete(DeleteBehavior.Restrict);
+			modelBuilder.Entity<Reservation>()
+				.HasOne(r => r.PickUpLocation)
+				.WithMany(c => c.PickUpReservations)
+				.HasForeignKey(r => r.PickUpLocationID)
+				.OnDelete(DeleteBehavior.ClientSetNull);
 
-			modelBuilder.Entity<RentACarProcess>()
-				.HasOne(r => r.DropOffLocationNavigation)
-				.WithMany(l => l.DropOffs)
-				.HasForeignKey(r => r.DropOffLocation)
-				.OnDelete(DeleteBehavior.Restrict);
+			modelBuilder.Entity<Reservation>()
+				.HasOne(r => r.DropOffLocation)
+				.WithMany(c => c.DropOffReservations)
+				.HasForeignKey(r => r.DropOffLocationID)
+				.OnDelete(DeleteBehavior.ClientSetNull);
 
 			modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 			base.OnModelCreating(modelBuilder);

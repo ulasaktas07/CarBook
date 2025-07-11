@@ -12,7 +12,8 @@ namespace CarBook.Aplication.Features.Mediator.Handlers.StatisticsHandlers
 		{
 			var getBlogTitleByMaxBlogComment = await repository.GetBlogTitleByMaxBlogCommentAsync();
 
-			return ServiceResult<GetBlogTitleByMaxBlogCommentQueryResult>.Success(new GetBlogTitleByMaxBlogCommentQueryResult(getBlogTitleByMaxBlogComment));
+			return ServiceResult<GetBlogTitleByMaxBlogCommentQueryResult>
+				.Success(new GetBlogTitleByMaxBlogCommentQueryResult(getBlogTitleByMaxBlogComment!));
 
 		}
 	

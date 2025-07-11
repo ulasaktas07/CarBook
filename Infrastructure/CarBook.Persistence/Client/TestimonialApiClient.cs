@@ -1,7 +1,6 @@
 ﻿using CarBook.Aplication.Interfaces;
 using CarBook.Dto;
 using CarBook.Dto.TestimonialDtos;
-using CarBook.Dto.TestimonialDtos;
 using Newtonsoft.Json;
 using System.Text;
 

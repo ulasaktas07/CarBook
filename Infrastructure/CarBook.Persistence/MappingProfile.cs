@@ -10,6 +10,7 @@ using CarBook.Aplication.Features.Mediator.Commands.FeatureCommands;
 using CarBook.Aplication.Features.Mediator.Commands.FooterAddressCommands;
 using CarBook.Aplication.Features.Mediator.Commands.LocationCommands;
 using CarBook.Aplication.Features.Mediator.Commands.PricingCommands;
+using CarBook.Aplication.Features.Mediator.Commands.ReservationCommands;
 using CarBook.Aplication.Features.Mediator.Commands.ServiceCommands;
 using CarBook.Aplication.Features.Mediator.Commands.SocialMediaCommands;
 using CarBook.Aplication.Features.Mediator.Commands.TestimonialCommands;
@@ -24,6 +25,7 @@ using CarBook.Dto.FeatureDtos;
 using CarBook.Dto.FooterAddressDtos;
 using CarBook.Dto.LocationDtos;
 using CarBook.Dto.PricingDtos;
+using CarBook.Dto.ReservationDtos;
 using CarBook.Dto.ServiceDtos;
 using CarBook.Dto.SocialMediaDtos;
 using CarBook.Dto.TestimonialDtos;
@@ -78,6 +80,7 @@ namespace CarBook.Persistence
 			CreateMap<CreateTestimonialRequest, CreateTestimonialCommand>();
 			CreateMap<UpdateTestimonialRequest, UpdateTestimonialCommand>();
 
+			CreateMap<CreateReservationRequest, CreateReservationCommand>();
 
 
 		}

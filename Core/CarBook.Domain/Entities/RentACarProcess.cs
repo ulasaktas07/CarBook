@@ -5,13 +5,6 @@ public class RentACarProcess : BaseEntity<int>
 {
 	public int CarID { get; set; }
 	public Car Car { get; set; } = default!;
-
-	public int PickUpLocation { get; set; }
-	public Location PickUpLocationNavigation { get; set; } = default!;
-
-	public int DropOffLocation { get; set; }
-	public Location DropOffLocationNavigation { get; set; } = default!;
-
 	public DateOnly PickUpDate { get; set; }
 	public DateOnly DropOffDate { get; set; }
 	public TimeOnly PickUpTime { get; set; }

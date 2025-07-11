@@ -19,7 +19,7 @@ namespace CarBook.WebUI.Controllers
 			var blogs = await blogApiClient.GetAllBlogsWithWriterAsync();
 			return View(blogs);
 		}
-		public async Task<IActionResult> BlogDetail(int id)
+		public  IActionResult BlogDetail(int id)
 		{
 			ViewData["a"] = "Bloglar";
 			ViewBag.b = "Blog Detayı ve Yorumlar";
