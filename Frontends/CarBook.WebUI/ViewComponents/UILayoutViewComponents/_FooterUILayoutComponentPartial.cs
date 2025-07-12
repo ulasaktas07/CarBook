@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CarBook.Aplication.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.WebUI.ViewComponents.UILayoutViewComponents
 {
-	public class _FooterUILayoutComponentPartial:ViewComponent
+	public class _FooterUILayoutComponentPartial(IFooterAddressApiClient footerAddressApiClient) : ViewComponent
 	{
-		public IViewComponentResult Invoke()
+		public async Task<IViewComponentResult> InvokeAsync()
 		{
-			return View();
+			var footerAddresses = await footerAddressApiClient.GetFooterAddressesAsync();
+			return View(footerAddresses);
 		}
 	}
 }
