@@ -1,17 +1,14 @@
 ﻿using CarBook.Aplication.Interfaces;
+using CarBook.Aplication.Services;
+using CarBook.Dto.AboutDtos;
+using CarBook.Dto.CommentDtos;
+using CarBook.Persistence.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.WebUI.Controllers
 {
-	public class BlogController: Controller
+	public class BlogController(IBlogApiClient blogApiClient, ICommentService service) : Controller
 	{
-		private readonly IBlogApiClient blogApiClient;
-
-		// Constructor injection ile bağımlılığı alıyoruz
-		public BlogController(IBlogApiClient blogApiClient)
-		{
-			this.blogApiClient = blogApiClient;
-		}
 		public async Task<IActionResult> Index()
 		{
 			ViewData["a"] = "Bloglar";
@@ -19,7 +16,7 @@ namespace CarBook.WebUI.Controllers
 			var blogs = await blogApiClient.GetAllBlogsWithWriterAsync();
 			return View(blogs);
 		}
-		public  IActionResult BlogDetail(int id)
+		public IActionResult BlogDetail(int id)
 		{
 			ViewData["a"] = "Bloglar";
 			ViewBag.b = "Blog Detayı ve Yorumlar";
@@ -27,6 +24,28 @@ namespace CarBook.WebUI.Controllers
 
 			return View(); // BlogDetail.cshtml view'ine gönder
 		}
+
+		[HttpGet]
+		public PartialViewResult AddComment(int id)
+		{
+			ViewBag.blogId = id;
+			return PartialView();
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> AddComment(CreateCommentRequest request)
+		{
+			if (!ModelState.IsValid)
+			{
+				return View(request);
+			}
+			TempData["CommentSuccess"] = true;
+
+			var result = await service.CreateCommentAsync(request);
+
+			return RedirectToAction(nameof(Index));
+		}
+
 	}
-	}
+}
 

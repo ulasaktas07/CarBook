@@ -24,7 +24,12 @@ namespace CarBook.WepApi.Controllers
 		public async Task<IActionResult> Remove(int id) => CreateActionResult(await mediator.Send(new RemoveCommentCommand(id)));
 
 		[HttpGet("CommentListByBlog")]
-		public async Task<IActionResult> GetCommentsByBlogId(int id) => CreateActionResult(await mediator.Send(new GetCommentsByBlogIdQuery(id)));
+		public async Task<IActionResult> GetCommentsByBlogId(int id) 
+			=> CreateActionResult(await mediator.Send(new GetCommentsByBlogIdQuery(id)));
+
+		[HttpGet("CommentCountByBlogId")]
+		public async Task<IActionResult> GetCommentCountByBlogId(int id) 
+			=> CreateActionResult(await mediator.Send(new GetCommentCountByBlogIdQuery(id)));
 
 	}
 }

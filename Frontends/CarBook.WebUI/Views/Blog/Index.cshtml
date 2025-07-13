@@ -2,8 +2,9 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/UILayout/Index.cshtml";
-}
 
+}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <section class="ftco-section">
     <div class="container">
         <div class="row d-flex justify-content-center">
@@ -31,3 +32,19 @@
     </div>
 </section>
 
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            const commentSuccess = '@TempData["CommentSuccess"]';
+            if (commentSuccess === 'True') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Yorumunuz eklendi!',
+                    text: 'Yorumunuz başarıyla gönderildi. Teşekkürler!',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Tamam'
+                });
+            }
+        });
+    </script>
+}

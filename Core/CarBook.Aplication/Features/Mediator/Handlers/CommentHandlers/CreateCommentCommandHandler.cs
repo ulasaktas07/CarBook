@@ -1,10 +1,7 @@
-﻿
-using CarBook.Aplication.Features.Mediator.Commands.BlogCommands;
-using CarBook.Aplication.Features.Mediator.Commands.CommentCommands;
+﻿using CarBook.Aplication.Features.Mediator.Commands.CommentCommands;
 using CarBook.Aplication.Interfaces;
 using CarBook.Domain.Entities;
 using MediatR;
-using System.Reflection.Metadata;
 
 namespace CarBook.Aplication.Features.Mediator.Handlers.CommentHandlers
 {
@@ -17,7 +14,9 @@ namespace CarBook.Aplication.Features.Mediator.Handlers.CommentHandlers
 			{
 				Name = request.Name,
 				Description = request.Description,
+				Email = request.Email,
 				BlogID = request.BlogID,
+
 			};
 			await repository.CreateAsync(comment);
 			await unitOfWork.SaveChangesAsync();

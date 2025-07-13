@@ -18,6 +18,7 @@ namespace CarBook.Aplication.Features.Mediator.Handlers.CommentHandlers
 			}
 			comment.Name = request.Name;
 			comment.Description = request.Description;
+			comment.Email = request.Email;
 			comment.BlogID = request.BlogID;
 			repository.Update(comment);
 			await unitOfWork.SaveChangesAsync();

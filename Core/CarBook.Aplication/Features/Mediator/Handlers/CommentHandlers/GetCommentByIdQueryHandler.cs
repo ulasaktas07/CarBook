@@ -17,7 +17,7 @@ namespace CarBook.Aplication.Features.Mediator.Handlers.CommentHandlers
 			{
 				return ServiceResult<GetCommentByIdQueryResult>.Fail("Comment not found.", HttpStatusCode.NotFound);
 			}
-			var result = new GetCommentByIdQueryResult(comment.Id, comment.Name, comment.Description, comment.BlogID, comment.Created);
+			var result = new GetCommentByIdQueryResult(comment.Id, comment.Name, comment.Description, comment.Email, comment.BlogID, comment.Created);
 			return ServiceResult<GetCommentByIdQueryResult>.Success(result);
 		}
 	}

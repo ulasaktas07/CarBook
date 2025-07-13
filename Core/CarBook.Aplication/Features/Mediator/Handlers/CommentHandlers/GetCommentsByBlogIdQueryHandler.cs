@@ -16,7 +16,7 @@ namespace CarBook.Aplication.Features.Mediator.Handlers.CommentHandlers
 			{
 				return ServiceResult<List<GetCommentsByBlogIdQueryResult>>.Fail("Bu blogda yorum yok.",HttpStatusCode.NotFound);
 			}
-			var result = comments.Select(c => new GetCommentsByBlogIdQueryResult(c.Id,c.Name,c.Description,c.BlogID,c.Created)).ToList();
+			var result = comments.Select(c => new GetCommentsByBlogIdQueryResult(c.Id,c.Name,c.Description,c.Email, c.BlogID,c.Created)).ToList();
 			return ServiceResult<List<GetCommentsByBlogIdQueryResult>>.Success(result);
 		}
 	}
