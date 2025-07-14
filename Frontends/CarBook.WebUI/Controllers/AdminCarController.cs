@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CarBook.WebUI.Controllers
 {
-	public class AdminCarController(ICarApiClient carApiClient, IBrandApiClient brandApiClient,ICarService carService) : Controller
+	public class AdminCarController(ICarApiClient carApiClient, IBrandApiClient brandApiClient, ICarService carService) : Controller
 	{
 		public async Task<IActionResult> Index()
 		{
@@ -84,5 +84,6 @@ namespace CarBook.WebUI.Controllers
 			}
 			return View(resultCarDto);
 		}
+
 	}
 }

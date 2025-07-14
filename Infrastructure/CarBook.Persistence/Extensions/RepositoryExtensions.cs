@@ -2,6 +2,7 @@
 using App.Persistence.Interceptors;
 using CarBook.Aplication.Interfaces;
 using CarBook.Aplication.Interfaces.BlogInterfaces;
+using CarBook.Aplication.Interfaces.CarFeatureInterfaces;
 using CarBook.Aplication.Interfaces.CarInterfaces;
 using CarBook.Aplication.Interfaces.CarPricingInterfaces;
 using CarBook.Aplication.Interfaces.CommentInterfaces;
@@ -39,6 +40,7 @@ namespace CarBook.Persistence.Extensions
 			services.AddScoped(typeof(ICommentRepository), typeof(CommentRepository));
 			services.AddScoped(typeof(IStatisticsRepository), typeof(StatisticsRepository));
 			services.AddScoped(typeof(IRentACarRepository), typeof(RentACarRepository));
+			services.AddScoped(typeof(ICarFeatureRepository), typeof(CarFeatureRepository));
 
 
 			services.AddScoped<IUnitOfWork, UnitOfWork>();
