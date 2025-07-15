@@ -1,0 +1,47 @@
+﻿<script src="/chart.js"></script>
+
+<div class="col-lg-4">
+    <div class="card">
+        <div class="card-body">
+
+            <h4 class="card-title d-inline-block">Lokasyon Verileri</h4>
+
+            <div style="height: 260px;">
+                <canvas id="my3Chart" height="220"></canvas>
+                <script>
+                    var values=document.getElementById('my3Chart').getContext('2d');
+                    var myChart = new Chart(values, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Sabiha Gökçen H.L', 'Kadıköy Rıhtım', 'Kartal Köprüsü', 'İstanbul Havalimanı', 'Maltepe Sahil', 'Bahçelievler Meydan',"Melyat"],
+                            datasets: [{
+                                label: 'Araç - Lokasyon Grafiği ',
+                                data: [25, 5, 2, 15, 6, 3,45],
+                                backgroundColor: [
+                                    'rgba(78, 115, 223, 0.2)',
+                                    'rgba(28, 200, 138, 0.2)',
+                                    'rgba(54, 185, 204, 0.2)',
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(255, 205, 86, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(78, 115, 223, 1)',
+                                    'rgba(28, 200, 138, 1)',
+                                    'rgba(54, 185, 204, 1)',
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(255, 205, 86, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                fill: true,
+                                tension: 0.1
+                            }]
+                        },
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
