@@ -9,5 +9,7 @@ namespace CarBook.Aplication.Interfaces.ApiConsume
 		Task<CarFeatureByCarIdDto> ChangeCarFeatureAvailableToFalseAsync(CarFeatureByCarIdDto carFeatureByCarIdDto);
 
 		Task<CarFeatureByCarIdDto> ChangeCarFeatureAvailableToTrueAsync(CarFeatureByCarIdDto carFeatureByCarIdDto);
+
+
 	}
 }

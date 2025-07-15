@@ -9,6 +9,7 @@ namespace CarBook.Aplication.Interfaces.CarFeatureInterfaces
 		Task<CarFeature> ChangeCarFeatureAvailableToFalseAsync(int id);
 
 		Task<CarFeature> ChangeCarFeatureAvailableToTrueAsync(int id);
+		Task CreateCarFeatureByCarAsync(CarFeature carFeature);
 
 	}
 }

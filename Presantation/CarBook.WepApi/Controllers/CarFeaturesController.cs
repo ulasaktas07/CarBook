@@ -18,5 +18,9 @@ namespace CarBook.WepApi.Controllers
 		[HttpGet("ChangeCarFeatureAvailableToTrue/{id}")]
 		public async Task<IActionResult> ChangeCarFeatureAvailableToTrue(int id)
 			=> CreateActionResult(await mediator.Send(new UpdateCarFeatureAvailableChangeToTrueCommand(id)));
+
+		[HttpPost("CreateCarFeatureByCar")]
+		public async Task<IActionResult> CreateCarFeatureByCar(CreateCarFeatureByCarCommand command)
+			=> CreateActionResult(await mediator.Send(command));
 	}
 }

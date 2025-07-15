@@ -1,12 +1,13 @@
 ﻿using CarBook.Aplication.Interfaces.ApiConsume;
 using CarBook.Dto.CarFeatureDtos;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace CarBook.WebUI.Areas.Admin.Controllers
 {
 	[Area("Admin")]
 	[Route("Admin/[controller]/[action]/{id?}")]
-	public class CarFeatureDetailController(ICarFeatureApiClient carFeatureApiClient) : Controller
+	public class CarFeatureDetailController(ICarFeatureApiClient carFeatureApiClient, IFeatureApiClient featureApiClient) : Controller
 	{
 		[HttpGet]
 		public async Task<IActionResult> Index(int id)
@@ -32,6 +33,14 @@ namespace CarBook.WebUI.Areas.Admin.Controllers
 			}
 			return RedirectToAction("Index", "AdminCar");
 		}
+		[HttpGet]
+		public async Task<IActionResult> CreateFeatureByCarId()
+		{
+			var features = await featureApiClient.GetFeaturesAsync();
+
+			return View(features);
+		}
+
 
 	}
 }
