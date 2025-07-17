@@ -13,5 +13,8 @@ namespace CarBook.Persistence.Repositories
 
 		public List<Car> GetCarsListWithBrands() => context.Cars.Include(c => c.Brand).ToList();
 
+		public async Task<Car?> GetCarsListWithBrands(int id)
+			=> await context.Cars.Include(c=>c.Brand).Where(c => c.Id == id)
+				.FirstOrDefaultAsync()!;
 	}
 }

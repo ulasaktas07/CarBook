@@ -8,9 +8,16 @@ namespace CarBook.WebUI.Controllers
 		public async Task<IActionResult> Index()
 		{
 			ViewData["a"] = "ARABALAR";
-			ViewBag.b= "ARABALARIMIZ";
+			ViewBag.b = "ARABALARIMIZ";
 			var cars = await carPricingClient.GetCarPricingWithCarsAsync();
 			return View(cars);
+		}
+		public  IActionResult CarDetail(int id)
+		{
+			ViewData["a"] = "Araçlarımız";
+			ViewBag.b = "Araç Detayı";
+			ViewBag.carid = id;
+			return View();
 		}
 	}
 }

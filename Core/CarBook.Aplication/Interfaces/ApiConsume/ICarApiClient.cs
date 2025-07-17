@@ -5,6 +5,7 @@ namespace CarBook.Aplication.Interfaces
 	public interface ICarApiClient
 	{
 		Task<List<CarDto>> GetCarsAsync();
+		Task<CarDto> GetCarsByBrandAsync(int id);
 		Task<List<Last5CarsWithBrandsDto>> GetLast5CarsWithBrandsAsync();
 		Task<List<CarDto>> GetCarsWithBrandAsync();
 		Task<bool> SendCreateCarAsync(CreateCarRequest request);

@@ -84,5 +84,16 @@ namespace CarBook.Persistence.Client
 				return false;
 			return response.IsSuccessStatusCode;
 		}
+
+		public async Task<CarDto> GetCarsByBrandAsync(int id)
+		{
+			var client = httpClientFactory.CreateClient();
+			var response = await client.GetAsync($"https://localhost:7274/api/Cars/{id}");
+			if (!response.IsSuccessStatusCode)
+				return new CarDto();
+			var jsonData = await response.Content.ReadAsStringAsync();
+			var apiResponse = JsonConvert.DeserializeObject<ApiIdResponse<CarDto>>(jsonData);
+			return apiResponse?.Data ?? new CarDto();
+		}
 	}
 }

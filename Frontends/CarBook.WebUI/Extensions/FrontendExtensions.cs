@@ -56,6 +56,7 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<IRentACarApiClient, RentACarApiClient>();
 			services.AddScoped<IReservationApiClient, ReservationApiClient>();
 			services.AddScoped<ICarFeatureApiClient, CarFeatureApiClient>();
+			services.AddScoped<ICarDescriptionApiClient, CarDescriptionApiClient>();
 
 
 			services.AddAutoMapper(typeof(MappingProfile).Assembly);
