@@ -21,6 +21,7 @@ public class Car : BaseEntity<int>, IAuditEntity
 	public List<RentACar> RentACars { get; set; } = default!;
 	public List<RentACarProcess>? RentACarProcesses { get; set; }
 	public List<Reservation>? Reservations { get; set; }
+	public List<Review>? Reviews { get; set; }
 	public DateTime Created { get; set; }
 	public DateTime? Updated { get; set; }
 }

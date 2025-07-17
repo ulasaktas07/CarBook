@@ -8,6 +8,7 @@ using CarBook.Aplication.Interfaces.CarInterfaces;
 using CarBook.Aplication.Interfaces.CarPricingInterfaces;
 using CarBook.Aplication.Interfaces.CommentInterfaces;
 using CarBook.Aplication.Interfaces.RentACarInterfaces;
+using CarBook.Aplication.Interfaces.ReviewInterfaces;
 using CarBook.Aplication.Interfaces.StatisticsInterfaces;
 using CarBook.Aplication.Interfaces.TagCloudInterfaces;
 using CarBook.Persistence.Repositories;
@@ -43,6 +44,8 @@ namespace CarBook.Persistence.Extensions
 			services.AddScoped(typeof(IRentACarRepository), typeof(RentACarRepository));
 			services.AddScoped(typeof(ICarFeatureRepository), typeof(CarFeatureRepository));
 			services.AddScoped(typeof(ICarDescriptionRepository), typeof(CarDescriptionRepository));
+			services.AddScoped(typeof(IReviewRepository), typeof(ReviewRepository));
+
 
 
 			services.AddScoped<IUnitOfWork, UnitOfWork>();

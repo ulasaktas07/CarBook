@@ -30,6 +30,7 @@ namespace CarBook.Persistence
 		public DbSet<RentACarProcess> RentACarProcesses { get; set; } = default!;
 		public DbSet<Customer> Customers { get; set; } = default!;
 		public DbSet<Reservation> Reservations { get; set; } = default!;
+		public DbSet<Review> Reviews { get; set; } = default!;
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
