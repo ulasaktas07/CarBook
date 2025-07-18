@@ -11,10 +11,14 @@ using CarBook.Aplication.Interfaces.RentACarInterfaces;
 using CarBook.Aplication.Interfaces.ReviewInterfaces;
 using CarBook.Aplication.Interfaces.StatisticsInterfaces;
 using CarBook.Aplication.Interfaces.TagCloudInterfaces;
+using CarBook.Aplication.Tools;
 using CarBook.Persistence.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace CarBook.Persistence.Extensions
 {
@@ -34,6 +38,22 @@ namespace CarBook.Persistence.Extensions
 				options.AddInterceptors(new AuditDbContextInterceptor());
 
 			});
+			services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+			{
+				options.RequireHttpsMetadata = false;
+				options.TokenValidationParameters=new TokenValidationParameters
+				{
+					
+					ValidAudience =JwtTokenDefaults.ValidAudience,
+					ValidIssuer = JwtTokenDefaults.ValidIssuer,
+					ClockSkew= TimeSpan.Zero,
+					IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtTokenDefaults.Key)),
+					ValidateLifetime= true,
+					ValidateIssuerSigningKey = true
+				};
+
+			});
+
 			services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 			services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
 			services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository));
@@ -41,10 +61,10 @@ namespace CarBook.Persistence.Extensions
 			services.AddScoped(typeof(ITagCloudRepository), typeof(TagCloudRepository));
 			services.AddScoped(typeof(ICommentRepository), typeof(CommentRepository));
 			services.AddScoped(typeof(IStatisticsRepository), typeof(StatisticsRepository));
-			services.AddScoped(typeof(IRentACarRepository), typeof(RentACarRepository));
 			services.AddScoped(typeof(ICarFeatureRepository), typeof(CarFeatureRepository));
 			services.AddScoped(typeof(ICarDescriptionRepository), typeof(CarDescriptionRepository));
 			services.AddScoped(typeof(IReviewRepository), typeof(ReviewRepository));
+			services.AddScoped(typeof(IRentACarRepository), typeof(RentACarRepository));
 
 
 

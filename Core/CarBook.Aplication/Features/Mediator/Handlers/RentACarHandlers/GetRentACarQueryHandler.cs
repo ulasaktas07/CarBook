@@ -7,12 +7,12 @@ using System.Net;
 
 namespace CarBook.Aplication.Features.Mediator.Handlers.RentACarHandlers
 {
-	public class GetRentACarQueryHandler(IRentACarRepository rentACarRepository)
+	public class GetRentACarQueryHandler(IRentACarRepository repository)
 		: IRequestHandler<GetRentACarQuery, ServiceResult<List<GetRentACarQueryResult>>>
 	{
 		public async Task<ServiceResult<List<GetRentACarQueryResult>>> Handle(GetRentACarQuery request, CancellationToken cancellationToken)
 		{
-			var rentACars = await rentACarRepository.GetByFilterAsync
+			var rentACars = await repository.GetByFilterAsync
 				(x => x.LocationID == request.LocationID && x.Available == request.Available);
 
 			if (rentACars is null || !rentACars.Any())

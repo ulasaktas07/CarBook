@@ -6,6 +6,8 @@ namespace CarBook.Persistence
 {
 	public class CarBookContext(DbContextOptions<CarBookContext> options) : DbContext(options)
 	{
+		public DbSet<AppUser> AppUsers { get; set; } = default!;
+		public DbSet<AppRole> AppRoles { get; set; } = default!;
 		public DbSet<About> Abouts { get; set; } = default!;
 		public DbSet<Banner> Banners { get; set; } = default!;
 		public DbSet<Brand> Brands { get; set; } = default!;

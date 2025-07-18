@@ -7,6 +7,7 @@ namespace CarBook.Aplication.Interfaces
 		Task<List<T>> GetAllAsync();
 		Task<T?> GetByIdAsync(int id);
 		Task<bool> AnyAsync(Expression<Func<T, bool>> predicate);
+		Task<T?> GetByFilterAsync(Expression<Func<T, bool>> predicate);
 		Task CreateAsync(T entity);
 		void Update(T entity);
 		void Remove(T entity);
