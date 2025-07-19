@@ -24,8 +24,7 @@
 <img width="1290" height="661" alt="Ekran görüntüsü 2025-07-19 183037" src="https://github.com/user-attachments/assets/00a91df7-b43d-4f65-907f-f67d27268a7f" />
 <br/><br/>
 <img width="1316" height="631" alt="Ekran görüntüsü 2025-07-19 183114" src="https://github.com/user-attachments/assets/8fb58f86-2a89-40d3-87a1-ffb9dd3aff01" />
-<br/><br/>
-<img width="1262" height="632" alt="Ekran görüntüsü 2025-07-19 183134" src="https://github.com/user-attachments/assets/8b5550e1-576d-4995-9340-9b093d65f43e" />
+
 <br/><br/>
 <img width="1244" height="632" alt="Ekran görüntüsü 2025-07-19 183204" src="https://github.com/user-attachments/assets/34218145-7ec6-4b91-aadb-7dc1725f2922" />
 <br/><br/>
