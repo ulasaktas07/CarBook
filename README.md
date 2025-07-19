@@ -23,8 +23,6 @@
 
 ## 📈 Ekran Görüntüleri
 
-### Swagger ile API Test Arayüzü
-![Swagger API Arayüzü](./Assets/images/swagger-endpoints.png)
 ## 🚀 Başlatmak için
 
 ```bash
