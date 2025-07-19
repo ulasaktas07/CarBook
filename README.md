@@ -21,7 +21,6 @@
 | Veritabanı    | SQL Server                                     |
 
 
-## 📈 Ekran Görüntüleri
 
 ## 🚀 Başlatmak için
 
