@@ -1,9 +1,10 @@
-﻿using CarBook.Dto.LoginDtos;
+﻿using CarBook.Aplication.Services;
+using CarBook.Dto.LoginDtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.WebUI.Controllers
 {
-	public class LoginController : Controller
+	public class LoginController(ILoginService loginService) : Controller
 	{
 		[HttpGet]
 		public IActionResult Index()
@@ -11,9 +12,17 @@ namespace CarBook.WebUI.Controllers
 			return View();
 		}
 		[HttpPost]
-		public async Task<IActionResult> Index(CreateLoginResult createLoginResult)
+		public async Task<IActionResult> Index(CreateLoginRequest request)
 		{
-			return View();
+			if (!ModelState.IsValid)
+			{
+				return View(request);
+			}
+			var result = await loginService.CreateLoginAsync(request);
+
+				return RedirectToAction("Index", "Default");
+		
+			
 		}
 	}
 }

@@ -1,13 +1,15 @@
 ﻿using CarBook.Aplication.Interfaces.ApiConsume;
 using CarBook.Dto;
 using CarBook.Dto.LocationDtos;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace CarBook.Persistence.Client
 {
-	public class LocationApiClient(IHttpClientFactory httpClientFactory):ILocationApiClient
+	public class LocationApiClient(IHttpClientFactory httpClientFactory, IHttpContextAccessor httpContextAccessor) : ILocationApiClient
 	{
 		public async Task<bool> DeleteLocationAsync(int id)
 		{
@@ -31,17 +33,24 @@ namespace CarBook.Persistence.Client
 
 		public async Task<List<LocationDto>> GetLocationsAsync()
 		{
-			var client = httpClientFactory.CreateClient();
-			var response = await client.GetAsync("https://localhost:7274/api/Locations");
+			var token = httpContextAccessor.HttpContext?.User.Claims.FirstOrDefault(c => c.Type == "accessToken")?.Value;
+			if (token != null)
+			{
+				var client = httpClientFactory.CreateClient();
+				client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+				var response = await client.GetAsync("https://localhost:7274/api/Locations");
 
-			if (!response.IsSuccessStatusCode)
-				return new List<LocationDto>();
+				if (!response.IsSuccessStatusCode)
+					return new List<LocationDto>();
 
-			var jsonData = await response.Content.ReadAsStringAsync();
-			var apiResponse = JsonConvert.DeserializeObject<ApiResponse<LocationDto>>(jsonData);
-			List<SelectListItem> selectList = new List<SelectListItem>();
+				var jsonData = await response.Content.ReadAsStringAsync();
+				var apiResponse = JsonConvert.DeserializeObject<ApiResponse<LocationDto>>(jsonData);
+				List<SelectListItem> selectList = new List<SelectListItem>();
+				return apiResponse?.Data ?? new List<LocationDto>();
 
-			return apiResponse?.Data ?? new List<LocationDto>();
+			}
+			return new List<LocationDto>();
+
 		}
 
 		public async Task<CreateLocationResult> SendCreateLocationAsync(CreateLocationRequest createLocationRequest)

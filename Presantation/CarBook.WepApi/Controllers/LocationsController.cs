@@ -1,11 +1,12 @@
 ﻿using CarBook.Aplication.Features.Mediator.Commands.LocationCommands;
 using CarBook.Aplication.Features.Mediator.Queries.LocationQueries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.WepApi.Controllers
 {
+	[Authorize(Roles ="Admin")]	
 	public class LocationsController(IMediator mediator) : CustomBaseController
 	{
 		[HttpGet]

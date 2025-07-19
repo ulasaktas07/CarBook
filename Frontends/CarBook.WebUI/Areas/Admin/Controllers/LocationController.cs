@@ -1,18 +1,21 @@
 ﻿using CarBook.Aplication.Interfaces.ApiConsume;
 using CarBook.Aplication.Services;
 using CarBook.Dto.LocationDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.WebUI.Areas.Admin.Controllers
 {
+	[Authorize(Roles = "Admin")]
 	[Area("Admin")]
 	[Route("Admin/[controller]/[action]/{id?}")]
 	public class LocationController(ILocationApiClient locationApiClient, ILocationService locationService) : Controller
 	{
 		public async Task<IActionResult> Index()
 		{
-			var Locations = await locationApiClient.GetLocationsAsync();
-			return View(Locations);
+			
+			var locations = await locationApiClient.GetLocationsAsync();
+			return View(locations);
 		}
 		[HttpGet]
 		public IActionResult CreateLocation()

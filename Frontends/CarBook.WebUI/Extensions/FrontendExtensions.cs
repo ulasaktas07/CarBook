@@ -4,6 +4,7 @@ using CarBook.Aplication.Services;
 using CarBook.Persistence;
 using CarBook.Persistence.Client;
 using CarBook.Persistence.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace CarBook.WebUI.Extensions
 {
@@ -13,6 +14,20 @@ namespace CarBook.WebUI.Extensions
 		{
 			services.AddControllersWithViews();
 			services.AddHttpClient();
+			services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+				.AddCookie(JwtBearerDefaults.AuthenticationScheme,options =>
+				{
+					options.LoginPath = "/Login/Index";
+					options.LogoutPath = "/Login/LogOut";
+					options.AccessDeniedPath = "/Pages/AccessDenied";
+					options.Cookie.SameSite = SameSiteMode.Strict;
+					options.Cookie.HttpOnly = true;
+					options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+					options.Cookie.Name = "CarBookJwt";
+				});
+
+			services.AddHttpContextAccessor();
+
 
 			services.AddScoped<ICarService, CarService>();
 			services.AddScoped<IContactService, ContactService>();
@@ -31,6 +46,7 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<IReservationService, ReservationService>();
 			services.AddScoped<ICommentService, CommentService>();
 			services.AddScoped<IRegisterService, RegisterService>();
+			services.AddScoped<ILoginService, LoginService>();
 
 
 
@@ -60,6 +76,7 @@ namespace CarBook.WebUI.Extensions
 			services.AddScoped<ICarDescriptionApiClient, CarDescriptionApiClient>();
 			services.AddScoped<IReviewApiClient, ReviewApiClient>();
 			services.AddScoped<IRegisterApiClient, RegisterApiClient>();
+			services.AddScoped<ILoginApiClient, LoginApiClient>();
 
 
 			services.AddAutoMapper(typeof(MappingProfile).Assembly);
